@@ -12,7 +12,7 @@ class Tournament:
     # A voir si on garde cette méthode et si append marche
     def add_player(self, player):
         self.players.append(player)
-    
+    # A voir avec Driss ce qu'il y a définir comme fonctions. ET si on garde cette méthode
     def generate_pairings(self, players):
         pass
     
