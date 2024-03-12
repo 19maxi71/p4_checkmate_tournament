@@ -1,5 +1,5 @@
-from view import get_tournament_details
-from controller import create_tournament
+from all_views.player_view import get_tournament_details
+from all_controllers.controller import create_tournament
 
 
 def main():
@@ -15,5 +15,6 @@ def main():
     print(tournament.rounds)
     print(tournament.current_round)
 
+# idiome pour lancer le script
 if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-from model import Tournament, Round, Match, Player
+from all_models.player import Tournament, Round, Match, Player
 
 # fonction pour créer un tournoi
 def create_tournament(name, location, start_date, end_date, num_rounds, description):
