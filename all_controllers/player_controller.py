@@ -12,32 +12,34 @@ class PlayerController:
     def create_player(self, name, last_name, date_of_birth, chess_id):
         player = Player(name, last_name, date_of_birth, chess_id)
         return player
+
         
     def save_player(self, player):
+        # player_data = player.serialized_player()
         player_data = {
-            "name": player.name,
-            "last_name": player.last_name,
-            "date_of_birth": player.date_of_birth,
-            "chess_id": player.chess_id
+        "name": player.name,
+        "last_name": player.last_name,
+        "date_of_birth": player.date_of_birth,
+        "chess_id": player.chess_id
         }
-        
-        
         try:
             with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
                 data = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             data = []
-
         data.append(player_data)
-
         with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", "w") as file:
-            json.dump(data, file)    
-        
+            json.dump(data, file)   
+
     def show_player(self, player):
         self.player_view.display_player(player)
         
         
-# # juste pour test du code        
-# runfortest = PlayerController()
-# player = runfortest.create_player("John", "Doe", "1990-01-01", "123456")
-# runfortest.save_player(player)
+# juste pour test du code        
+run_for_test = PlayerController()
+test_player = run_for_test.create_player("John", "Doe", "1990-01-01", "12345")
+run_for_test.save_player(test_player)
+# print("Données à enregistrer :", data)
+# test = PlayerController()
+# testtest = test.serialized_player( "John", "Doe", "1990-01-01", "12345")
+# print(testtest)
