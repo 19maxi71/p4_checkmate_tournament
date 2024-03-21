@@ -15,13 +15,13 @@ class PlayerController:
 
         
     def save_player(self, player):
-        # player_data = player.serialized_player()
-        player_data = {
-        "name": player.name,
-        "last_name": player.last_name,
-        "date_of_birth": player.date_of_birth,
-        "chess_id": player.chess_id
-        }
+        player_data = Player.serialized_player(player)
+        # player_data = {
+        # "name": player.name,
+        # "last_name": player.last_name,
+        # "date_of_birth": player.date_of_birth,
+        # "chess_id": player.chess_id
+        # }
         try:
             with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
                 data = json.load(file)

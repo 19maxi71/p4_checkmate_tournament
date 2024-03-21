@@ -11,12 +11,14 @@ class Player:
     
     # fonction pour sérialiser les données d'un joueur. mettre les données dans un dictionnaire pour json
     def serialized_player(self):
-        return serialized_player_data = {
+        serialized_player_data = {
             "name": self.name,
             "last_name": self.last_name,
             "date_of_birth": self.date_of_birth,
             "chess_id": self.chess_id
         }
+        return serialized_player_data
+        
     
     # def save_player(player_data):
     #     try:
