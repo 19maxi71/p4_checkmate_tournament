@@ -15,7 +15,7 @@ class PlayerController:
 
         
     def save_player(self, player):
-        player_data = Player.serialized_player(player)
+        player_data = Player.serialized_player(player) #DEMANDE POURQUOI ET S IL FO L UTILISER OU JUSTE 'player' SUFFIT
         # player_data = {
         # "name": player.name,
         # "last_name": player.last_name,
@@ -36,9 +36,11 @@ class PlayerController:
         
         
 # juste pour test du code        
-run_for_test = PlayerController()
-test_player = run_for_test.create_player("John", "Doe", "1990-01-01", "12345")
-run_for_test.save_player(test_player)
+# run_for_test = PlayerController()
+# test_player = run_for_test.create_player("John", "Doe", "1990-01-01", "12345")
+# run_for_test.save_player(test_player)
+
+
 # print("Données à enregistrer :", data)
 # test = PlayerController()
 # testtest = test.serialized_player( "John", "Doe", "1990-01-01", "12345")

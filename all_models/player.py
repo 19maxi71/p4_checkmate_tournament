@@ -1,3 +1,5 @@
+import os
+
 class Player:
     def __init__(self, name, last_name, date_of_birth, chess_id):
         self.name = name
