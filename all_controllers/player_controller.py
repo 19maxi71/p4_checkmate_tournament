@@ -35,7 +35,7 @@ class PlayerController:
         self.player_view.display_player(player)
         
         
-# juste pour test du code        
+# # juste pour test du code        
 # run_for_test = PlayerController()
 # test_player = run_for_test.create_player("John", "Doe", "1990-01-01", "12345")
 # run_for_test.save_player(test_player)
