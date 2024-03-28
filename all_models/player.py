@@ -22,18 +22,20 @@ class Player:
         return serialized_player_data
         
     
-    # def save_player(player_data):
-    #     try:
-    #         with open('players.json', 'r') as file:
-    #             data = json.load(file)
-    #     except (FileNotFoundError, json.JSONDecodeError):
-    #         data = []
+    def save_player(player_data):
+        try:
+            with open('players.json', 'r') as file:
+                data = json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            data = []
 
-    #     data.append(player_data)
+        data.append(player_data)
 
-    #     with open('players.json', 'w') as file:
-    #         json.dump(data, file)
-            
+        with open('players.json', 'w') as file:
+            json.dump(data, file)
+      
+      
+    # # methode pour chercher un joueur dans la liste des joueurs.
     # def player_exists(player_data):
     #     try:
     #         with open('players.json', 'r') as file:
@@ -42,7 +44,7 @@ class Player:
     #         return False
 
     #     for player in data:
-    #         if player['name'] == player_data['name'] and player['last_name'] == player_data['last_name']:
+    #         if player['chess_id'] == player_data['chess_id']:
     #             return True
 
     #     return False

@@ -5,8 +5,14 @@ from all_controllers.player_controller import PlayerController
 
 # juste pour test du code        
 run_for_test = PlayerController()
-test_player = run_for_test.create_player()
-run_for_test.save_player(test_player)
+
+while True:
+    test_player = run_for_test.create_player()
+    run_for_test.save_player(test_player)
+    
+    add_another = input("Voulez ajouter encore un joueur? (y/n): ")
+    if add_another.lower() != 'y':
+        break
 
 
 # def main():

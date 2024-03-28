@@ -44,8 +44,8 @@ class PlayerController:
             print(f"Identifian National d'Echecs: {player['chess_id']}")
         
 
-test = PlayerController()
-testtest = test.display_players()
+# test = PlayerController()
+# testtest = test.display_players()
         
 # # juste pour test du code        
 # run_for_test = PlayerController()
