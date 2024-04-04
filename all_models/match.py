@@ -64,13 +64,14 @@ class Match:
             elif player['chess_id'] == chess_id2:
                 player2 = player
         if player1 is None or player2 is None:
-            print("One or both players not found")
+            print("Joueur non trouvé. Veuillez vérifier l'Identifian National d'Echecs.")
             return None
         match = Match(player1, player2)
         return match
 
     def get_match_result(self):
         result = input("Entrer le résultat du match (1 pour victoire de joueur 1, 2 pour victoire de joueur 2, 0 pour match nul): ")
+        # réflechi comment faire les points aussi!
         if result == '1':
             self.win = self.player1
             print(f"Le joueur {self.player1['name']} a gagné")

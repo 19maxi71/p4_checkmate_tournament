@@ -11,6 +11,7 @@ while True:
     run_for_test.save_player(test_player)
     
     add_another = input("Voulez ajouter encore un joueur? (y/n): ")
+    # lower contre majuscule
     if add_another.lower() != 'y':
         break
 

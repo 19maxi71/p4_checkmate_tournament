@@ -1,3 +1,8 @@
+import sys
+sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
+import json
+
+
 class Tournament: 
     def __init__(self, name, location, start_date, end_date, num_rounds, description):
         self.name = name
@@ -9,6 +14,7 @@ class Tournament:
         self.description = description
         self.players = []
         self.rounds = []
+    
     # A voir si on garde cette méthode et si append marche
     def add_player(self, player):
         self.players.append(player)
@@ -21,3 +27,4 @@ class Tournament:
     
     def is_tournament_over(self):
         pass
+
