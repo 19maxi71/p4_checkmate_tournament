@@ -43,6 +43,7 @@ class Match:
         self.player2 = player2
         self.win = None
         self.draw = None
+        self.result = None
 
     def player_chess_id(self):
         chess_id1 = input("Entrer l'Identifian National d'Echecs du joueur 1: ")
@@ -70,21 +71,41 @@ class Match:
         return match
 
     def get_match_result(self):
-        result = input("Entrer le résultat du match (1 pour victoire de joueur 1, 2 pour victoire de joueur 2, 0 pour match nul): ")
-        # réflechi comment faire les points aussi!
-        if result == '1':
-            self.win = self.player1
-            print(f"Le joueur {self.player1['name']} a gagné")
-        elif result == '2':
-            self.win = self.player2
-            print(f"Le joueur {self.player2['name']} a gagné")
-        elif result == '0':
-            self.draw = True
-            print("Match nul")
-        else:
-            print("Entrée invalide. Veuillez entrer 1, 2 ou 0")
-            self.get_match_result()
+        if self.result is None:
+            self.result = input("Entrer le résultat du match (1 pour victoire de joueur 1, 2 pour victoire de joueur 2, 0 pour match nul): ")
+            # réflechi comment faire les points aussi!
+            if self.result == '1':
+                self.win = self.player1
+                print(f"Le joueur {self.player1['name']} a gagné")
+            elif self.result == '2':
+                self.win = self.player2
+                print(f"Le joueur {self.player2['name']} a gagné")
+            elif self.result == '0':
+                self.draw = True
+                print("Match nul")
+            else:
+                print("Entrée invalide.")
+                self.get_match_result()
+        return self.result
 
+    def get_players_points(self):
+        result_of_match = self.get_match_result()
+        # deep copy, la copie player1 mais qui ne se change pas si on change player1 
+        player1_copy = self.player1.copy()
+        player2_copy = self.player2.copy()
+        if result_of_match == '1':
+            player1_copy['points'] = 1
+            player2_copy['points'] = 0
+        elif result_of_match == '2':
+            player2_copy['points'] = 1
+            player1_copy['points'] = 0
+        elif result_of_match == '0':
+            player1_copy['points'] = 0.5
+            player2_copy['points'] = 0.5
+        return ([self.player1, player1_copy['points']], [self.player2, player2_copy['points']])
+    
+    
+    
 # on doit créer un objet de match pour pouvoir appeler les méthodes
 test_match = Match(None, None)
 
@@ -95,4 +116,5 @@ chess_id1, chess_id2 = test_match.player_chess_id()
 test = Match.create_match_from_json_list(chess_id1, chess_id2)
 
 # obtenir le résultat du match
-test.get_match_result()
+test.get_players_points()
+print(test.get_players_points())
