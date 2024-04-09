@@ -1,8 +1,8 @@
 import sys
 sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
 import json
-from all_models.player import Player
-from all_views.player_view import PlayerView
+# from all_models.player import Player
+# from all_views.player_view import PlayerView
 
 # class Match:
 #     def __init__(self, player1, player2):
@@ -45,13 +45,34 @@ class Match:
         self.draw = None
         self.result = None
 
-    def player_chess_id(self):
-        chess_id1 = input("Entrer l'Identifian National d'Echecs du joueur 1: ")
-        chess_id2 = input("Entrer l'Identifian National d'Echecs du joueur 2: ")
-        return chess_id1, chess_id2
+    # def player_chess_id(self):
+    #     chess_id1 = input("Entrer l'Identifian National d'Echecs du joueur 1: ")
+    #     chess_id2 = input("Entrer l'Identifian National d'Echecs du joueur 2: ")
+    #     return chess_id1, chess_id2
 
-    @staticmethod
-    def create_match_from_json_list(chess_id1, chess_id2):
+    # @staticmethod
+    # def create_match_from_json_list(chess_id1, chess_id2):
+    #     try:
+    #         with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
+    #             data = json.load(file)
+    #     except (FileNotFoundError, json.JSONDecodeError):
+    #         data = []
+    #     player1 = None
+    #     player2 = None
+    #     for player in data:
+    #         if player['chess_id'] == chess_id1:
+    #             player1 = player
+    #         elif player['chess_id'] == chess_id2:
+    #             player2 = player
+    #     if player1 is None or player2 is None:
+    #         print("Joueur non trouvé. Veuillez vérifier l'Identifian National d'Echecs.")
+    #         return None
+    #     match = Match(player1, player2)
+    #     return match
+        # cette fonction c'était pour tester, maintenant il faut juste une fonction qui retourne un match
+        # fo lui passer les pairings générer dans le round
+    @staticmethod    
+    def create_match_for_round(chess_id1, chess_id2):
         try:
             with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
                 data = json.load(file)
@@ -68,7 +89,10 @@ class Match:
             print("Joueur non trouvé. Veuillez vérifier l'Identifian National d'Echecs.")
             return None
         match = Match(player1, player2)
-        return match
+        return match    
+        
+    
+    
 
     def get_match_result(self):
         if self.result is None:
@@ -104,17 +128,18 @@ class Match:
             player2_copy['points'] = 0.5
         return ([self.player1, player1_copy['points']], [self.player2, player2_copy['points']])
     
+    def __str__(self):
+        return f"Match entre {self.player1['name']} et {self.player2['name']}"
     
-    
-# on doit créer un objet de match pour pouvoir appeler les méthodes
-test_match = Match(None, None)
+# # on doit créer un objet de match pour pouvoir appeler les méthodes
+# test_match = Match(None, None)
 
-# pour obtenir les id des joueurs
-chess_id1, chess_id2 = test_match.player_chess_id()
+# # pour obtenir les id des joueurs
+# chess_id1, chess_id2 = test_match.player_chess_id()
 
-# Créer le match
-test = Match.create_match_from_json_list(chess_id1, chess_id2)
+# # Créer le match
+# test = Match.create_match_for_round(chess_id1, chess_id2)
 
-# obtenir le résultat du match
-test.get_players_points()
-print(test.get_players_points())
+# # obtenir le résultat du match
+# test.get_players_points()
+# print(test.get_players_points())
