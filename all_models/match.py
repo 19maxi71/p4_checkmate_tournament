@@ -126,6 +126,8 @@ class Match:
         elif result_of_match == '0':
             player1_copy['points'] = 0.5
             player2_copy['points'] = 0.5
+        print(f'Le joueur {player1_copy["name"]} obtient {player1_copy["points"]} points\n'
+            f'Le joueur {player2_copy["name"]} obtient {player2_copy["points"]} points')
         return ([self.player1, player1_copy['points']], [self.player2, player2_copy['points']])
     
     def __str__(self):

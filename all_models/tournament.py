@@ -1,6 +1,7 @@
 import sys
 sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
 import json
+from all_models.player import Player
 
 
 class Tournament: 

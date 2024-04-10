@@ -10,5 +10,22 @@ class TournamentView:
         description = input("Description : ")
         return name, location, start_date, end_date, num_rounds, description
 
+    def input_players(self):
+        print("Voulez faire quoi?\n"
+              "1. Ajouter un joueur existant\n"
+              "2. Ajouter un nouveau joueur\n"
+              "3. Charger une liste des jouers .json")
+        choice = input("Votre choix: ")
+        return choice
 
     # print(get_tournament_details())
+
+
+# instance de TournamentView
+tournament_view = TournamentView()
+
+# appel input_players methode
+choice = tournament_view.input_players()
+
+# Print choice
+print(choice)

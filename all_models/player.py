@@ -35,16 +35,16 @@ class Player:
             json.dump(data, file)
       
       
-    # # methode pour chercher un joueur dans la liste des joueurs.
-    # def player_exists(player_data):
-    #     try:
-    #         with open('players.json', 'r') as file:
-    #             data = json.load(file)
-    #     except (FileNotFoundError, json.JSONDecodeError):
-    #         return False
+    # methode pour chercher un joueur dans la liste des joueurs.
+    def player_exists(player_data):
+        try:
+            with open('players.json', 'r') as file:
+                data = json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return False
 
-    #     for player in data:
-    #         if player['chess_id'] == player_data['chess_id']:
-    #             return True
+        for player in data:
+            if player['chess_id'] == player_data['chess_id']:
+                return True
 
-    #     return False
+        return False
