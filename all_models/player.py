@@ -1,4 +1,5 @@
 import os
+import json
 
 class Player:
     def __init__(self, name, last_name, date_of_birth, chess_id):
@@ -12,6 +13,7 @@ class Player:
     #     return f"{self.name} {self.last_name}"
     
     # fonction pour sérialiser les données d'un joueur. mettre les données dans un dictionnaire pour json
+    # @staticmethod
     def serialized_player(self):
         serialized_player_data = {
             "name": self.name,
@@ -21,7 +23,7 @@ class Player:
         }
         return serialized_player_data
         
-    
+    @staticmethod
     def save_player(player_data):
         try:
             with open('players.json', 'r') as file:
@@ -36,15 +38,23 @@ class Player:
       
       
     # methode pour chercher un joueur dans la liste des joueurs.
+    @staticmethod
     def player_exists(player_data):
+        # print("player_exists marche bien") # pour voir si la fonction est bien appelée
         try:
-            with open('players.json', 'r') as file:
+            with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
                 data = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
+            print("ouvre pas ton json machine")  # voir si l'erreur est là
             return False
+
+        # print(f"data: {data}")  # print pour checker si on a bien les données des joueurs
+        # print(f"player_data: {player_data}")  # print pour checker si on a bien les données du joueur à chercher
 
         for player in data:
             if player['chess_id'] == player_data['chess_id']:
+                print(f"Joueur trouvé: {player['name']} {player['last_name']}")
                 return True
 
+        print(f"Joueur non trouvé.")
         return False

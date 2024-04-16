@@ -4,28 +4,32 @@ import json
 from all_models.tournament import Tournament
 from all_views.tournament_view import TournamentView
 from all_models.player import Player
+from all_views.player_view import PlayerView
 
 
 class TournamentController:
     
     def __init__(self):
         self.tournament_view = TournamentView()
-        self.tournament = None
+        self.player_view = PlayerView()
     # fonction pour créer un tournoi
     
     def create_tournament(self):
         name, location, start_date, end_date, num_rounds, description = self.tournament_view.get_tournament_details()
-        tournament = Tournament(name, location, start_date, end_date, num_rounds, description)
-        return tournament
+        self.tournament = Tournament(name, location, start_date, end_date, num_rounds, description)
 
     def add_players_to_tournament(self):
         choice = self.tournament_view.input_players()
+        # si le choix est 1, on vérifie si le joueur existe dans player et player view
         if choice == "1":
-            self.player_exists()
+            chess_id = self.player_view.get_player_chess_id()
+            player_data = {"chess_id": chess_id}
+            Player.player_exists(player_data)
+        # fo faire pareil pour les autres choix 
         elif choice == "2":
-            self.add_player()
+            Player.add_player()
         elif choice == "3":
-            self.load_players()
+            Player.load_players()
         else:
             print("Choix invalide")
         

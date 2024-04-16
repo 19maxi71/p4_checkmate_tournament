@@ -17,15 +17,14 @@ class TournamentView:
               "3. Charger une liste des jouers .json")
         choice = input("Votre choix: ")
         return choice
-
     # print(get_tournament_details())
 
 
-# instance de TournamentView
-tournament_view = TournamentView()
+# # instance de TournamentView
+# tournament_view = TournamentView()
 
-# appel input_players methode
-choice = tournament_view.input_players()
+# # appel input_players methode
+# choice = tournament_view.input_players()
 
-# Print choice
-print(choice)
+# # Print choice
+# print(choice)
