@@ -8,9 +8,9 @@ class Player:
         self.date_of_birth = date_of_birth
         self.chess_id = chess_id
     
-    # # fonction pour afficher les données d'un joueur sous forme de string. à supp si pas besoin
-    # def __repr__(self):
-    #     return f"{self.name} {self.last_name}"
+    # fonction pour afficher les données d'un joueur sous forme de string. à supp si pas besoin
+    def __repr__(self):
+        return f"{self.name} {self.last_name} {self.date_of_birth} {self.chess_id}"
     
     # fonction pour sérialiser les données d'un joueur. mettre les données dans un dictionnaire pour json
     # @staticmethod
@@ -54,7 +54,15 @@ class Player:
         for player in data:
             if player['chess_id'] == player_data['chess_id']:
                 print(f"Joueur trouvé: {player['name']} {player['last_name']}")
-                return True
+                return player
 
         print(f"Joueur non trouvé.")
         return False
+
+    def __dict__(self):
+        return {
+            "name": self.name,
+            "last_name": self.last_name,
+            "date_of_birth": self.date_of_birth,
+            "chess_id": self.chess_id
+        }

@@ -6,9 +6,11 @@ class TournamentView:
         location = input("Lieu : ")
         start_date = input("Date de début : ")
         end_date = input("Date de fin : ")
+        total_players = int(input("Nombre de joueurs : ") or 4)
         num_rounds = int(input("Nombre de rounds : ") or 4)
         description = input("Description : ")
-        return name, location, start_date, end_date, num_rounds, description
+        
+        return name, location, start_date, end_date, total_players, num_rounds, description
 
     def input_players(self):
         print("Voulez faire quoi?\n"

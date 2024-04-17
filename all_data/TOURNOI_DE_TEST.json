@@ -1,0 +1,1 @@
+{"name": "TOURNOI_DE_TEST", "location": "Chez moi", "start_date": "17/04/2024", "end_date": "19/04/2024", "num_rounds": 4, "current_round": 0, "description": "blablablablabla", "players": [{"name": "dupont", "last_name": "jean", "date_of_birth": "1999-01-01", "chess_id": "12345"}], "rounds": []}
