@@ -6,6 +6,10 @@ from all_views.tournament_view import TournamentView
 from all_models.player import Player
 from all_controllers.player_controller import PlayerController
 from all_views.player_view import PlayerView
+from all_models.round import Round
+from all_controllers.round_controller import RoundController
+from datetime import datetime
+from all_models.match import Match
 
 
 class TournamentController:
@@ -74,9 +78,23 @@ class TournamentController:
             print("Le tournoi est complet. Impossible d'ajouter plus de joueurs.")
             return True
         return False
-        
+    
+    def run_rounds(self):
+        for i in range(int(self.tournament.num_rounds)):
+            round = Round("Round " + str(i + 1), datetime.now(), None)
+            round_controller = RoundController(round)
+            round_controller.generate_pairings(self.tournament.players)
+            for match in round_controller.round.matches:
+                match.get_match_result()
+                match.get_players_points()
+            round_controller.round.end_datetime = datetime.now()
+            self.tournament.add_round(round_controller.round)
+        self.tournament.tournament_to_json()
+
 test = TournamentController()
 test.create_tournament()
+test.run_rounds()
+
 # print(len(test.tournament.players))
 # for player in range(int(test.tournament.total_players)):
 #     test.add_players_to_tournament()

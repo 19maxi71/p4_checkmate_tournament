@@ -3,6 +3,7 @@ sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_chec
 import json
 # from all_models.player import Player
 # from all_controllers.tournament_controller import TournamentController
+from all_models.round import Round
 
 
 class Tournament: 
@@ -18,6 +19,12 @@ class Tournament:
         self.players = []
         self.rounds = []
 
+
+    # l'idée est de créer à chaque création de tournoi des tours dedans
+    def add_round(self, round):
+        self.rounds.append(round.serialize_round())
+        self.tournament_to_json()
+        
     # A voir si on garde cette méthode et si append marche
     def add_player(self, player):
         # self.players.append(player.serialized_player())
