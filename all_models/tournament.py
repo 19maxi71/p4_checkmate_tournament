@@ -20,6 +20,7 @@ class Tournament:
 
     # A voir si on garde cette méthode et si append marche
     def add_player(self, player):
+        # self.players.append(player.serialized_player())
         self.players.append(player)
         self.tournament_to_json()
         
@@ -37,6 +38,8 @@ class Tournament:
         }
         with open(f'D:\\All OpenClassRooms projects\\p4_checkmate_tournament\\p4_checkmate_tournament\\all_data\\{self.name}.json', 'w') as file:
             json.dump(tournament_data, file)
+
+    
 
     # A voir avec Driss ce qu'il y a définir comme fonctions. ET si on garde cette méthode
     def generate_pairings(self, players):

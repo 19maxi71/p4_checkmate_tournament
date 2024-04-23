@@ -11,3 +11,8 @@ class PlayerView:
     def get_player_chess_id(self):
         chess_id = input("Entrer votre Identifiant National d'Echecs: ")
         return str(chess_id)
+    
+    @staticmethod
+    def get_file_path():
+        file_path = input("Entrer le chemin de la liste des joueurs: ")
+        return file_path

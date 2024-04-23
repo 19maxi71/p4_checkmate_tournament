@@ -13,6 +13,7 @@ class PlayerController:
         name, last_name, date_of_birth, chess_id = self.player_view.get_player_details()
         player = Player(name, last_name, date_of_birth, chess_id)
         return player
+    # .serialized_player()
 
         
     def save_player(self, player):
