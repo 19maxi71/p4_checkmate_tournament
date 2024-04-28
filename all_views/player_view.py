@@ -1,10 +1,13 @@
+from datetime import datetime
+
+
 class PlayerView:
     
     
     def get_player_details(self):
         name = input("Entrer le nom de joueur: ")
         last_name = input("Entrer le prénom de joueur: ")
-        date_of_birth = input("Entrer la date de naissance de jouer (YYYY-MM-DD): ")
+        date_of_birth = datetime.strptime(input("Entrer la date de naissance de jouer (DD/MM/YYYY): "), "%d/%m/%Y")
         chess_id = input("Entrer Identifian National d'Echecs: ")
         return name, last_name, date_of_birth, chess_id
     

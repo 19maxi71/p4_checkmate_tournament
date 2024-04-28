@@ -2,45 +2,59 @@
 import json
 import sys
 sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
-from all_views.player_view import PlayerView
+from dataclasses import dataclass, asdict
+from datetime import datetime
+from typing import Optional
 
+# from all_controllers.player_controller import PlayerController
+
+
+
+@dataclass
 class Player:
-    def __init__(self, name, last_name, date_of_birth, chess_id):
-        self.name = name
-        self.last_name = last_name
-        self.date_of_birth = date_of_birth
-        self.chess_id = chess_id
-        # Ajout automatique du joueur dans la liste des joueurs players.json
-        self.save_player(self.serialized_player())
+    
+    name: str
+    last_name: str
+    date_of_birth: datetime
+    chess_id: str
+    
+    
+    # def __init__(self, name, last_name, date_of_birth, chess_id):
+    #     self.name = name
+    #     self.last_name = last_name
+    #     self.date_of_birth = date_of_birth
+    #     self.chess_id = chess_id
+    #     # Ajout automatique du joueur dans la liste des joueurs players.json
+    #     self.save_player(self.serialized_player())
     
     # fonction pour afficher les données d'un joueur sous forme de string. à supp si pas besoin
-    def __repr__(self):
-        return f"{self.name} {self.last_name} {self.date_of_birth} {self.chess_id}"
+    # def __repr__(self):
+    #     return f"{self.name} {self.last_name} {self.date_of_birth} {self.chess_id}"
     
     # fonction pour sérialiser les données d'un joueur. mettre les données dans un dictionnaire pour json
     # @staticmethod
-    def serialized_player(self):
-        serialized_player_data = {
-            "name": self.name,
-            "last_name": self.last_name,
-            "date_of_birth": self.date_of_birth,
-            "chess_id": self.chess_id
-        }
-        return serialized_player_data
+    # def serialized_player(self):
+    #     serialized_player_data = {
+    #         "name": self.name,
+    #         "last_name": self.last_name,
+    #         "date_of_birth": self.date_of_birth,
+    #         "chess_id": self.chess_id
+    #     }
+    #     return serialized_player_data
         
-    @staticmethod
-    def save_player(player_data):
-        try:
-            with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
-                data = json.load(file)
-        except (FileNotFoundError, json.JSONDecodeError):
-            data = []
+    # # @staticmethod
+    # def save_player(self, player_controller):
+    #     try:
+    #         with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
+    #             data = json.load(file)
+    #     except (FileNotFoundError, json.JSONDecodeError):
+    #         data = []
 
-        data.append(player_data)
+    #     player = player_controller.create_player()
+    #     data.append(asdict(player))
 
-        with open('players.json', 'w') as file:
-            json.dump(data, file)
-      
+    #     with open('players.json', 'w') as file:
+    #         json.dump(data, file)
       
     # methode pour chercher un joueur dans la liste des joueurs.
     @staticmethod
