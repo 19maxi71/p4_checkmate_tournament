@@ -2,9 +2,9 @@
 import json
 import sys
 sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 # from all_controllers.player_controller import PlayerController
 
@@ -15,8 +15,10 @@ class Player:
     
     name: str
     last_name: str
-    date_of_birth: datetime
+    date_of_birth: str
     chess_id: str
+    points: Optional[float] = 0.0
+    previous_opponents: List[str] = field(default_factory=list)
     
     
     # def __init__(self, name, last_name, date_of_birth, chess_id):

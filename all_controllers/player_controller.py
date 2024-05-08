@@ -16,7 +16,8 @@ class PlayerController:
     def create_player(self):
         name, last_name, date_of_birth, chess_id = self.player_view.get_player_details()
         player = Player(name, last_name, date_of_birth.strftime("%d/%m/%Y"), chess_id)
-        return asdict(player)
+        self.save_player(asdict(player))  # Enregistrement automatique d'un nouveau joueur dans le fichier players.json
+        return player
 
     def save_player(self, player):
         player_data = player
@@ -30,7 +31,7 @@ class PlayerController:
 
         with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", "w") as file:
             json.dump(data, file)
-        
+        print("Joueur enregistré avec succès")
 
     def display_players(self):
         try:
@@ -43,9 +44,9 @@ class PlayerController:
             print(f"date de naissance: {player['date_of_birth']}")
             print(f"Identifian National d'Echecs: {player['chess_id']}")
         
-player_controller = PlayerController()
-new_player = player_controller.create_player()
-player_controller.save_player(new_player)
+# player_controller = PlayerController()
+# new_player = player_controller.create_player()
+# player_controller.save_player(new_player)
 
 # test = PlayerController()
 # testtest = test.display_players()

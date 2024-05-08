@@ -2,31 +2,76 @@ import sys
 sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
 import json
 from all_models.match import Match
+from all_controllers.match_controller import MatchController
+from all_views.match_view import MatchView
 from all_models.round import Round
 from all_models.player import Player
 from all_views.player_view import PlayerView
 from datetime import datetime
+from random import shuffle
+from copy import deepcopy
 
 class RoundController:
     
     def __init__(self, round):
         self.round = round
-        # self.matches = []
         
-    # def create_round(self):
-    #     name, start_datetime, end_datetime = self.round
-    #     round = Round(name, start_datetime, end_datetime)
-    #     return round
     
-    def add_match_to_round(self, match):
-        self.round.add_match(match)
+    # def add_match_to_round(self, match):
+    #     self.round.add_match(match)
 
     def generate_pairings(self, players):
-        for i in range(0, len(players), 2):
-            player1 = players[i]
-            player2 = players[i + 1]
-            match = Match(player1, player2)
-            self.add_match_to_round(match)
+        pairings = []
+
+        if self.round.name == "Round 1":
+            shuffle(players)
+        else:
+            players.sort(key=lambda player: player.points, reverse=True)
+
+            for i in range(len(players)):
+                if players[i].previous_opponents is None:
+                    players[i].previous_opponents = []
+                for j in range(i + 1, len(players)):
+                    # Check si les joueurs n'ont pas joué l'un contre l'autre
+                    if players[j].chess_id not in players[i].previous_opponents:
+                        pairings.append((players[i], players[j]))
+                        break
+
+        return pairings
+
+    # def generate_pairings(self, players):
+    #     if self.round.name == "Round 1":
+    #         shuffle(players)
+    #     else:
+    #         players.sort(key=lambda player: player.points, reverse=True)
+        
+    #     for i in range(len(players)):
+    #         if players[i].previous_opponents is None:
+    #             players[i].previous_opponents = []
+    #         for j in range(i + 1, len(players)):
+    #             # Check si les joueurs n'ont pas joué l'un contre l'autre
+    #             if players[j].chess_id not in players[i].previous_opponents:
+    #                 # match = Match(deepcopy(players[i]), deepcopy(players[j]))
+    #                 match = Match(players[i], players[j])
+    #                 match_controller = MatchController(match, MatchView())
+    #                 match_controller.run_match()
+    #                 self.round.matches.append(match)
+    #                 break
+
+
+    # def generate_pairings(self, players):
+    #     if self.round.name == "Round 1":
+    #         shuffle(players)
+    #     else:
+    #         players.sort(key=lambda player: player.points, reverse=True)
+        
+    #     for i in range(len(players)):
+    #         for j in range(i + 1, len(players)):
+    #             # Check if players have not played against each other
+    #             if players[j].chess_id not in players[i].previous_opponents:
+    #                 match = Match(players[i], players[j])
+    #                 self.add_match_to_round(match)
+    #                 break
             
     # def add_match(self, match):
     #     self.matches.append(match)

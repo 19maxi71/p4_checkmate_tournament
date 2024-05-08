@@ -1,32 +1,50 @@
 import sys
 sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
 # import json
+from datetime import datetime
+from dataclasses import dataclass, field
 from all_models.match import Match
+from typing import Optional, List
 # from all_models.player import Player
 # from all_views.player_view import PlayerView
 
+
+@dataclass
 class Round:
+    name: str
+    start_datetime: str #datetime = field(default_factory=datetime.now)
+    end_datetime: str #Optional[datetime] = None
+    matches: List[Match] = field(default_factory=list)
+
+
     
-    def __init__(self, name, start_datetime, end_datetime):
-        self.name = name
-        self.start_datetime = start_datetime
-        self.end_datetime = end_datetime
-        self.matches = []
+    # def __init__(self, name, start_datetime, end_datetime):
+    #     self.name = name
+    #     self.start_datetime = start_datetime
+    #     self.end_datetime = end_datetime
+    #     self.matches = []
 
-    def serialize_round(self):
-        return {
-            "name": self.name,
-            "start_datetime": self.start_datetime.isoformat(),
-            "end_datetime": self.end_datetime.isoformat() if self.end_datetime else None,
-            "matches": [match.serialize_match() for match in self.matches]
-        }
+    # def serialize_round(self):
+    #     return {
+    #         "name": self.name,
+    #         "start_datetime": self.start_datetime.isoformat(),
+    #         "end_datetime": self.end_datetime.isoformat() if self.end_datetime else None,
+    #         "matches": [match.serialize_match() for match in self.matches]
+    #     }
 
-    def add_match(self, match):
-        self.matches.append(match)
+    # def add_match(self, match):
+    #     self.matches.append(match)
 
-    def add_round(self, round):
-        self.rounds.append(round.serialize_round())
-        self.tournament_to_json()
+    # def add_round(self, round):
+    #     self.rounds.append(round.serialize_round())
+    #     self.tournament_to_json()
+
+
+
+
+
+
+
 
 #     def generate_pairings(self):
 #         try:

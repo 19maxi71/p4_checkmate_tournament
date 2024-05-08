@@ -10,7 +10,8 @@ from all_models.round import Round
 from all_controllers.round_controller import RoundController
 from datetime import datetime
 from all_models.match import Match
-
+from all_controllers.match_controller import MatchController
+from all_views.match_view import MatchView
 
 class TournamentController:
     
@@ -33,7 +34,12 @@ class TournamentController:
         for player_data in players:
             if self.is_tournament_full():
                 break
-            self.tournament.add_player(player_data)
+            player = Player(**player_data)
+            self.tournament.add_player(player)
+    
+    # def add_player_to_tournament(self, player_dict):
+    #     player = Player(**player_dict)
+    #     self.tournament.add_player(player)
             
     def add_players_to_tournament(self):
         while True:
@@ -52,18 +58,12 @@ class TournamentController:
                     print("Joueur ajouté au tournoi")
                 else:
                     print("Joueur non trouvé")
-                # if Player.player_exists(player_data) == True:
-                #     print(player)
-                #     self.tournament.add_player(player_data)
-                #     print("Joueur ajouté au tournoi")
-                # else:
-                #     print("Joueur non trouvé")
-            # fo faire pareil pour les autres choix 
+            # si le choix est 2, on crée un nouveau joueur
             elif choice == "2":
                 player_controller = PlayerController()
                 new_player = player_controller.create_player()
                 player_controller.save_player(new_player)
-                self.tournament.add_player(new_player.serialized_player())
+                self.tournament.add_player(new_player)
             elif choice == "3":
                 self.load_players_to_tournament_from_file()
             else:
@@ -81,15 +81,60 @@ class TournamentController:
     
     def run_rounds(self):
         for i in range(int(self.tournament.num_rounds)):
-            round = Round("Round " + str(i + 1), datetime.now(), None)
+            round = Round("Round " + str(i + 1), str(datetime.now()), None)
             round_controller = RoundController(round)
-            round_controller.generate_pairings(self.tournament.players)
-            for match in round_controller.round.matches:
-                match.get_match_result()
-                match.get_players_points()
-            round_controller.round.end_datetime = datetime.now()
-            self.tournament.add_round(round_controller.round)
+            pairings = round_controller.generate_pairings(self.tournament.players)
+
+            for player1, player2 in pairings:
+                match = Match(player1, player2)
+                match_controller = MatchController(match, MatchView())
+                updated_player1, updated_player2 = match_controller.run_match()
+                round.matches.append(match)
+
+                # Update the players' scores and previous opponents in the tournament list
+                for tournament_player in self.tournament.players:
+                    if tournament_player.chess_id == updated_player1.chess_id:
+                        tournament_player.points += updated_player1.points
+                        if updated_player2.chess_id not in tournament_player.previous_opponents:
+                            tournament_player.previous_opponents.append(updated_player2.chess_id)
+                    elif tournament_player.chess_id == updated_player2.chess_id:
+                        tournament_player.points += updated_player2.points
+                        if updated_player1.chess_id not in tournament_player.previous_opponents:
+                            tournament_player.previous_opponents.append(updated_player1.chess_id)
+
+            round.end_datetime = str(datetime.now())
+            self.tournament.rounds.append(round)
+
         self.tournament.tournament_to_json()
+        
+    # def run_rounds(self):
+    #     for i in range(int(self.tournament.num_rounds)):
+    #         round = Round("Round " + str(i + 1), str(datetime.now()), None)
+    #         round_controller = RoundController(round)
+    #         pairings = round_controller.generate_pairings(self.tournament.players)
+
+    #         for player1, player2 in pairings:
+    #             match = Match(player1, player2)
+    #             match_controller = MatchController(match, MatchView())
+    #             match_controller.run_match()
+    #             round.matches.append(match)
+
+    #             # # update joueur dans le tournoi avec les points et les adversaires précédents
+    #             # for tournament_player in self.tournament.players:
+    #             #     if tournament_player.chess_id == player1.chess_id:
+    #             #         tournament_player.points = player1.points
+    #             #         tournament_player.previous_opponents = player1.previous_opponents
+    #             #     elif tournament_player.chess_id == player2.chess_id:
+    #             #         tournament_player.points = player2.points
+    #             #         tournament_player.previous_opponents = player2.previous_opponents
+
+    #         round.end_datetime = str(datetime.now())
+    #         self.tournament.rounds.append(round)
+
+    #     self.tournament.tournament_to_json()
+    
+
+# D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json
 
 test = TournamentController()
 test.create_tournament()
