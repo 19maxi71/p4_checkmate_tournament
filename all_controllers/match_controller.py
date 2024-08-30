@@ -1,5 +1,10 @@
 import sys
-sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
+import os
+# Relative path
+current_dir = os.path.dirname(__file__)
+project_dir = os.path.dirname(current_dir)
+sys.path.append(project_dir)
+
 from dataclasses import asdict
 
 from all_views.match_view import MatchView
@@ -13,12 +18,6 @@ class MatchController:
         self.match = match
         self.match_view = match_view
 
-
-    def run_match(self):
-        self.get_match_result()
-        self.get_players_points_and_opponent_chess_id()  # Call your method to assign points and opponents
-        self.match_view.display_match_result(self.match)
-        
     def get_players_points_and_opponent_chess_id(self):
         result_of_match = self.get_match_result()
 
@@ -42,11 +41,105 @@ class MatchController:
         self.match.player1.previous_opponents.append(self.match.player2.chess_id)
         self.match.player2.previous_opponents.append(self.match.player1.chess_id)
 
-
     def get_match_result(self):
         if self.match.result is None:
             self.match.result = self.match_view.input_match_result(self.match)
         return self.match.result
+
+    def run_match(self):
+        self.get_match_result()
+        self.get_players_points_and_opponent_chess_id()
+        self.match_view.display_match_result(self.match)
+        return deepcopy(self.match.player1), deepcopy(self.match.player2)
+
+
+
+
+
+
+
+
+# import sys
+# import os
+# # Relative path
+# current_dir = os.path.dirname(__file__)
+# project_dir = os.path.dirname(current_dir)
+# sys.path.append(project_dir)
+
+# from dataclasses import asdict
+
+# from all_views.match_view import MatchView
+# from all_models.match import Match
+
+# from all_controllers.player_controller import PlayerController
+# from copy import deepcopy
+
+# class MatchController:
+#     def __init__(self, match, match_view):
+#         self.match = match
+#         self.match_view = match_view
+
+
+#     # def run_match(self):
+#     #     self.get_match_result()
+#     #     self.get_players_points_and_opponent_chess_id()  # Call your method to assign points and opponents
+#     #     self.match_view.display_match_result(self.match)
+#     #     return self.match.player1, self.match.player2  # Return the updated player objects
+        
+#     def get_players_points_and_opponent_chess_id(self):
+#         result_of_match = self.get_match_result()
+
+#         if result_of_match == '1':
+#             self.match.player1.points += 1
+#             self.match.player2.points += 0
+#         elif result_of_match == '2':
+#             self.match.player2.points += 1
+#             self.match.player1.points += 0
+#         elif result_of_match == '0':
+#             self.match.player1.points += 0.5
+#             self.match.player2.points += 0.5
+
+#         # Initialize previous opponents list if it doesn't exist
+#         if self.match.player1.previous_opponents is None:
+#             self.match.player1.previous_opponents = []
+#         if self.match.player2.previous_opponents is None:
+#             self.match.player2.previous_opponents = []
+
+#         # Add opponent's chess_id to previous opponents list
+#         self.match.player1.previous_opponents.append(self.match.player2.chess_id)
+#         self.match.player2.previous_opponents.append(self.match.player1.chess_id)
+
+
+#     def get_match_result(self):
+#         if self.match.result is None:
+#             self.match.result = self.match_view.input_match_result(self.match)
+#         return self.match.result
+
+
+#     def run_match(self):
+#             self.get_match_result()
+#             self.get_players_points_and_opponent_chess_id()  
+#             self.match_view.display_match_result(self.match) 
+#             return deepcopy(self.match.player1), deepcopy(self.match.player2)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # def get_players_points_and_opponent_chess_id(self):
     #     result_of_match = self.get_match_result()
@@ -124,14 +217,7 @@ class MatchController:
     # def run_match(self):
     #     self.get_match_result()
     #     self.get_players_points_and_opponent_chess_id()
-    #     self.match_view.display_match_result(self.match)
-    def run_match(self):
-            self.get_match_result()
-            self.get_players_points_and_opponent_chess_id()  
-            self.match_view.display_match_result(self.match) 
-            return deepcopy(self.match.player1), deepcopy(self.match.player2)
-        
-        
+    #     self.match_view.display_match_result(self.match)        
         
 # match_view = MatchView()
 

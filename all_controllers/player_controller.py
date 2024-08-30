@@ -1,11 +1,15 @@
 import sys
-sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
+import os
+# Relative path
+current_dir = os.path.dirname(__file__)
+project_dir = os.path.dirname(current_dir)
+sys.path.append(project_dir)
+
 import json
 from all_models.player import Player
 from all_views.player_view import PlayerView
 
-
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, is_dataclass
 from datetime import datetime
 from typing import Optional
 
@@ -16,26 +20,29 @@ class PlayerController:
     def create_player(self):
         name, last_name, date_of_birth, chess_id = self.player_view.get_player_details()
         player = Player(name, last_name, date_of_birth.strftime("%d/%m/%Y"), chess_id)
-        self.save_player(asdict(player))  # Enregistrement automatique d'un nouveau joueur dans le fichier players.json
+        self.save_player(player)  # Pass the Player object directly
         return player
 
     def save_player(self, player):
-        player_data = player
+        if not is_dataclass(player):
+            raise TypeError("save_player expects a dataclass instance")
+        
+        player_data = asdict(player)  # Convert Player object to dictionary
         try:
-            with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
+            with open(os.path.join(project_dir, "all_data", "players.json"), 'r') as file:
                 data = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             data = []
 
         data.append(player_data)
 
-        with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", "w") as file:
-            json.dump(data, file)
+        with open(os.path.join(project_dir, "all_data", "players.json"), "w") as file:
+            json.dump(data, file, indent=4)
         print("Joueur enregistré avec succès")
 
     def display_players(self):
         try:
-            with open(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament\all_data\players.json", 'r') as file:
+            with open(os.path.join(project_dir, "all_data", "players.json"), 'r') as file:
                 data = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             data = []

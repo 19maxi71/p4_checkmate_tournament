@@ -1,1 +1,42 @@
-[{"name": "BOND", "last_name": "JAMES", "date_of_birth": "07/07/0007", "chess_id": "JB77007", "points": 0.0, "previous_opponents": null}, {"name": "HOOD", "last_name": "ROBIN", "date_of_birth": "01/01/1680", "chess_id": "RH12345", "points": 0.0, "previous_opponents": null}, {"name": "TOTAL", "last_name": "LOSER", "date_of_birth": "01/01/2000", "chess_id": "TL13131", "points": 0.0, "previous_opponents": null}, {"name": "EVERYTIME", "last_name": "WINNER", "date_of_birth": "07/07/1777", "chess_id": "EW77777", "points": 0.0, "previous_opponents": null}]
+[
+    {
+        "name": "WIN",
+        "last_name": "WIN",
+        "date_of_birth": "01/01/1111",
+        "chess_id": "11111",
+        "points": 0.0,
+        "previous_opponents": []
+    },
+    {
+        "name": "LOSE",
+        "last_name": "LOSE",
+        "date_of_birth": "02/02/2222",
+        "chess_id": "22222",
+        "points": 0.0,
+        "previous_opponents": []
+    },
+    {
+        "name": "DRAW",
+        "last_name": "DRAW",
+        "date_of_birth": "03/03/3333",
+        "chess_id": "33333",
+        "points": 0.0,
+        "previous_opponents": []
+    },
+    {
+        "name": "RANDOM",
+        "last_name": "RANDOM",
+        "date_of_birth": "04/04/4444",
+        "chess_id": "44444",
+        "points": 0.0,
+        "previous_opponents": []
+    },
+    {
+        "name": "NEW",
+        "last_name": "NEW",
+        "date_of_birth": "05/05/5555",
+        "chess_id": "55555",
+        "points": 0.0,
+        "previous_opponents": []
+    }
+]

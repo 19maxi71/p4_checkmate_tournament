@@ -1,5 +1,10 @@
 import sys
-sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
+import os
+# Relative path
+current_dir = os.path.dirname(__file__)
+project_dir = os.path.dirname(current_dir)
+sys.path.append(project_dir)
+
 # from all_views.player_view import get_tournament_details
 from all_controllers.player_controller import PlayerController
 

@@ -1,8 +1,13 @@
 import sys
-sys.path.append(r"D:\All OpenClassRooms projects\p4_checkmate_tournament\p4_checkmate_tournament")
+import os
+# Relative path
+current_dir = os.path.dirname(__file__)
+project_dir = os.path.dirname(current_dir)
+sys.path.append(project_dir)
+
 import json
 from dataclasses import dataclass, asdict, field
-# from all_models.player import Player
+from all_models.player import Player
 # from all_controllers.tournament_controller import TournamentController
 from all_models.round import Round
 from datetime import datetime
@@ -47,22 +52,24 @@ class Tournament:
             "players": [asdict(player) for player in self.players],
             "rounds": [asdict(round) for round in self.rounds]
         }
-        with open(f'D:\\All OpenClassRooms projects\\p4_checkmate_tournament\\p4_checkmate_tournament\\all_data\\{self.name}.json', 'w') as file:
+        with open(os.path.join(project_dir, 'all_data', f'{self.name}.json'), 'w') as file:
             json.dump(tournament_data, file)
 
     
 
-    # A voir avec Driss ce qu'il y a définir comme fonctions. ET si on garde cette méthode
-    def generate_pairings(self, players):
-        pass
-    
-    def update_scores(self, round, results):
-        pass
-    
-    def is_tournament_over(self):
-        pass
 
 # player = Player("John", "Doe", "2024-09-01", "66666")
 # test = Tournament("Tournoi test", "Paris", "2024-09-01", "2024-09-10", 5, "Tournoi de test")
 # test.add_player(player)
 # print(test.players)
+
+
+    # # A voir avec Driss ce qu'il y a définir comme fonctions. ET si on garde cette méthode
+    # def generate_pairings(self, players):
+    #     pass
+    
+    # def update_scores(self, round, results):
+    #     pass
+    
+    # def is_tournament_over(self):
+    #     pass
