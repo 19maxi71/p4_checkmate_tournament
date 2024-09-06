@@ -17,10 +17,19 @@ from typing import Optional, List
 @dataclass
 class Round:
     name: str
-    start_datetime: str #datetime = field(default_factory=datetime.now)
-    end_datetime: str #Optional[datetime] = None
+    start_datetime: str
+    end_datetime: str = None
     matches: List[Match] = field(default_factory=list)
 
+    @classmethod
+    def from_dict(cls, data):
+        round = cls(
+            name=data.get('name', 'Unknown Round'),
+            start_datetime=data.get('start_datetime', 'Unknown Start Date'),
+            end_datetime=data.get('end_datetime', None)
+        )
+        round.matches = [Match.from_dict(match_data) for match_data in data.get('matches', [])]
+        return round
 
     
     # def __init__(self, name, start_datetime, end_datetime):

@@ -16,13 +16,15 @@ from all_models.player import Player
 class Match:
     player1: Player
     player2: Player
-    result: Optional[str] = field(default=None, init=False)
+    result: str = None
 
-
-
-
-
-
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            player1=Player.from_dict(data.get('player1')),
+            player2=Player.from_dict(data.get('player2')),
+            result=data.get('result', None)
+        )
 
 
 

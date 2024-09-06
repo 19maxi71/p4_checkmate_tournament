@@ -1,19 +1,14 @@
 import sys
 import os
-# Relative path
-current_dir = os.path.dirname(__file__)
-project_dir = os.path.dirname(current_dir)
-sys.path.append(project_dir)
-
 import json
-
 from dataclasses import dataclass, asdict, field
 from datetime import datetime
 from typing import Optional, List
 
-# from all_controllers.player_controller import PlayerController
-
-
+# Relative path
+current_dir = os.path.dirname(__file__)
+project_dir = os.path.dirname(current_dir)
+sys.path.append(project_dir)
 
 @dataclass
 class Player:
@@ -23,13 +18,23 @@ class Player:
     chess_id: str
     points: Optional[float] = 0.0
     previous_opponents: List[str] = field(default_factory=list)
-    
-    
-      
-    # methode pour chercher un joueur dans la liste des joueurs.
+
+    def to_dict(self):
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            name=data['name'],
+            last_name=data['last_name'],
+            date_of_birth=data['date_of_birth'],
+            chess_id=data['chess_id'],
+            points=data.get('points', 0.0),
+            previous_opponents=data.get('previous_opponents', [])
+        )
+
     @staticmethod
     def player_exists(player_data):
-        # print("player_exists marche bien") # pour voir si la fonction est bien appelée
         try:
             players_data_file_path = os.path.join(project_dir, "all_data", "players.json")
             with open(players_data_file_path, 'r') as file:
@@ -38,9 +43,6 @@ class Player:
             print("ouvre pas ton json machine")  # voir si l'erreur est là
             return False
 
-        # print(f"data: {data}")  # print pour checker si on a bien les données des joueurs
-        # print(f"player_data: {player_data}")  # print pour checker si on a bien les données du joueur à chercher
-
         for player in data:
             if player['chess_id'] == player_data['chess_id']:
                 print(f"Joueur trouvé: {player['name']} {player['last_name']}")
@@ -48,7 +50,6 @@ class Player:
 
         print(f"Joueur non trouvé.")
         return False
-
 
     @staticmethod
     def load_players_from_file(file_path):
@@ -59,7 +60,6 @@ class Player:
             print("Chemin du fichier non valide.")
             return []
         return data
-    
 
 
 
