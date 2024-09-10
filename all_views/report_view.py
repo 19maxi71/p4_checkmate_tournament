@@ -1,7 +1,16 @@
+import os
+import sys
+
+# Chemin relatif
+current_dir = os.path.dirname(__file__)
+project_dir = os.path.dirname(current_dir)
+sys.path.append(project_dir)
+
 class ReportView:
     
     @staticmethod
     def display_report_menu():
+        """Affiche le menu des rapports et retourne le choix de l'utilisateur."""
         print("1. Générer un rapport des joueurs")
         print("2. Générer un rapport des tournois")
         print("3. Générer un rapport avec le nom et la date de début du tournoi")
@@ -11,6 +20,7 @@ class ReportView:
 
     @staticmethod
     def generate_reports(controller):
+        """Génère des rapports en fonction du choix de l'utilisateur."""
         choice = ReportView.display_report_menu()
         if choice == "1":
             controller.generate_players_report()

@@ -12,14 +12,16 @@ from all_views.report_view import ReportView
 from all_models.player import Player
 
 class ReportController:
-    
+
     def __init__(self):
         self.data_folder = os.path.join(os.path.dirname(__file__), '..', 'all_data')
 
     def generate_reports(self):
+        """Génère les rapports en utilisant la vue de rapport."""
         ReportView.generate_reports(self)
 
     def generate_players_report(self):
+        """Génère un rapport HTML de tous les joueurs."""
         players_file = os.path.join(self.data_folder, 'players.json')
         with open(players_file, 'r') as file:
             players = json.load(file)
@@ -33,6 +35,7 @@ class ReportController:
             file.write(html_content)
 
     def generate_tournaments_report(self):
+        """Génère un rapport HTML de tous les tournois."""
         tournaments_folder = self.data_folder
         tournaments = [f for f in os.listdir(tournaments_folder) if f.endswith('.json')]
         html_content = "<h1>List of All Tournaments</h1><ul>"
@@ -44,14 +47,15 @@ class ReportController:
             file.write(html_content)
 
     def generate_tournament_details_report(self):
+        """Génère un rapport HTML des détails d'un tournoi spécifique."""
         file_path = input("Enter the path of the tournament JSON file: ")
         with open(file_path, 'r') as file:
             data = json.load(file)
-        
+
         if isinstance(data, list):
             print("Error: The JSON file contains a list. Expected a dictionary.")
             return
-        
+
         tournament = Tournament.from_dict(data)
         file_name = os.path.basename(file_path).replace('.json', '')
         html_content = f"<h1>{tournament.name} - {tournament.start_date}</h1>"
@@ -64,16 +68,16 @@ class ReportController:
         with open(report_file, 'w') as file:
             file.write(html_content)
 
-
     def generate_tournament_players_report(self):
+        """Génère un rapport HTML des joueurs d'un tournoi spécifique."""
         file_path = input("Enter the path of the tournament JSON file: ")
         with open(file_path, 'r') as file:
             data = json.load(file)
-        
+
         if isinstance(data, list):
             print("Error: The JSON file contains a list. Expected a dictionary.")
             return
-        
+
         tournament = Tournament.from_dict(data)
         file_name = os.path.basename(file_path).replace('.json', '')
         html_content = f"<h1>{tournament.name} - {tournament.start_date}</h1>"
@@ -86,16 +90,16 @@ class ReportController:
         with open(report_file, 'w') as file:
             file.write(html_content)
 
-
     def generate_tournament_summary_report(self):
+        """Génère un rapport HTML sommaire d'un tournoi spécifique."""
         file_path = input("Enter the path of the tournament JSON file: ")
         with open(file_path, 'r') as file:
             data = json.load(file)
-        
+
         if isinstance(data, list):
             print("Error: The JSON file contains a list. Expected a dictionary.")
             return
-        
+
         tournament = Tournament.from_dict(data)
         file_name = os.path.basename(file_path).replace('.json', '')
         html_content = f"<h1>{tournament.name} --- START: {tournament.start_date} FIN: {tournament.end_date}</h1>"

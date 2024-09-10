@@ -1,33 +1,30 @@
 import sys
 import os
-# Relative path
+
+# Chemin relatif
 current_dir = os.path.dirname(__file__)
 project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
 import json
-from dataclasses import dataclass, asdict, field
-from typing import Optional, List
+from dataclasses import dataclass
+from typing import Optional
 from all_models.player import Player
-
-
 
 @dataclass
 class Match:
     player1: Player
     player2: Player
-    result: str = None
+    result: Optional[str] = None
 
     @classmethod
     def from_dict(cls, data):
+        """Crée une instance de Match à partir d'un dictionnaire."""
         return cls(
             player1=Player.from_dict(data.get('player1')),
             player2=Player.from_dict(data.get('player2')),
             result=data.get('result', None)
         )
-
-
-
 
 
 

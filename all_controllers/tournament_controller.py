@@ -1,13 +1,13 @@
-import sys
 import os
-from datetime import datetime
-from copy import deepcopy
+import sys
 
 # Relative path
 current_dir = os.path.dirname(__file__)
 project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
+from datetime import datetime
+from copy import deepcopy
 from all_models.tournament import Tournament
 from all_views.tournament_view import TournamentView
 from all_models.player import Player
@@ -20,7 +20,7 @@ from all_controllers.match_controller import MatchController
 from all_views.match_view import MatchView
 
 class TournamentController:
-    
+
     def __init__(self, file_path):
         self.file_path = file_path
         self.tournament_view = TournamentView()
@@ -29,6 +29,7 @@ class TournamentController:
         self.initialize_tournament()
 
     def initialize_tournament(self):
+        """Initialise le tournoi en fonction du choix de l'utilisateur."""
         choice = self.tournament_view.prompt_for_action()
         if choice == "1":
             self.create_tournament()
@@ -39,12 +40,14 @@ class TournamentController:
             sys.exit(1)
 
     def create_tournament(self):
+        """Crée un nouveau tournoi et ajoute des joueurs."""
         name, location, start_date, end_date, total_players, num_rounds, description = self.tournament_view.get_tournament_details()
         self.tournament = Tournament(name, location, start_date, end_date, total_players, num_rounds, description)
         self.add_players_to_tournament()
         self.save_tournament_to_json()
-            
+
     def load_players_to_tournament_from_file(self):
+        """Charge les joueurs à partir d'un fichier et les ajoute au tournoi."""
         if self.is_tournament_full():
             return
         file_path = self.player_view.get_file_path()
@@ -58,8 +61,9 @@ class TournamentController:
             else:
                 print(f"Player {player.name} is already in the tournament.")
         self.save_tournament_to_json()
-            
+
     def add_players_to_tournament(self):
+        """Ajoute des joueurs au tournoi en fonction du choix de l'utilisateur."""
         while True:
             if self.is_tournament_full():
                 print("Le tournoi est complet. Impossible d'ajouter plus de joueurs.")
@@ -90,24 +94,27 @@ class TournamentController:
             else:
                 print("Choix invalide")
         self.save_tournament_to_json()
-        
+
     def save_tournament_to_json(self):
+        """Sauvegarde le tournoi dans un fichier JSON."""
         if self.tournament:
             self.tournament.tournament_to_json()
 
     def load_tournament_from_json(self):
+        """Charge un tournoi à partir d'un fichier JSON."""
         file_path = self.tournament_view.get_file_path()
         self.tournament = Tournament.load_from_json(file_path)
-    
+
     def is_tournament_full(self):
-        if len(self.tournament.players) >= int(self.tournament.total_players):
-            return True
-        return False
-    
+        """Vérifie si le tournoi est complet."""
+        return len(self.tournament.players) >= int(self.tournament.total_players)
+
     def is_player_in_tournament(self, player):
+        """Vérifie si un joueur est déjà dans le tournoi."""
         return any(p.chess_id == player.chess_id for p in self.tournament.players)
-    
+
     def run_rounds(self):
+        """Exécute les rounds du tournoi."""
         for i in range(int(self.tournament.num_rounds)):
             round = Round("Round " + str(i + 1), str(datetime.now()), None)
             round_controller = RoundController(round)
