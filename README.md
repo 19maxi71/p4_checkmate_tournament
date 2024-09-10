@@ -1,39 +1,44 @@
-# p4_checkmate_tournament
- p4_oc_project
- 
-# Tournament Management System
+# Tournament Application
 
-## Setup
+## Project Overview
 
-1. **Create a virtual environment:**
+This project is a tournament management application that allows users to create and manage chess tournaments. 
+Created using Python.
 
+## Installation Instructions
+
+1. **Clone the Repository**:
     ```sh
-    python3 -m venv venv
+    git clone https://github.com/yourusername/tournament.git
+    cd tournament
     ```
 
-2. **Activate the virtual environment:**
+2. **Create a Virtual Environment**:
+    ```sh
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-    - On Windows:
-
-        ```sh
-        venv\Scripts\activate
-        ```
-
-    - On macOS/Linux:
-
-        ```sh
-        source venv/bin/activate
-        ```
-
-3. **Install the required packages:**
-
+3. **Install Dependencies**:
     ```sh
     pip install -r requirements.txt
     ```
 
-## Running the Program
+## Running the Application
 
-To run the program, execute the following command:
+To run the application, execute the following command:
+    ```sh
+    python main.py
+    ```
 
-```sh
-python3 main.py
+## Generating flake8 Reports
+
+To generate a flake8 text report, run:
+    ```sh
+    flake8 --max-line-length=119 > flake8_report.txt
+    ```
+
+To generate HTML report run the following command to generate the HTML report:
+    ```sh
+    flake8 --max-line-length=119 --format=html --htmldir=flake8_report_html
+    ```

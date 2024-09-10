@@ -1,3 +1,6 @@
+# Ignore flake8 HTML reports
+flake8_report_html/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
