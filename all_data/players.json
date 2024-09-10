@@ -3,7 +3,7 @@
         "name": "WIN",
         "last_name": "WIN",
         "date_of_birth": "01/01/1111",
-        "chess_id": "11111",
+        "chess_id": "AA11111",
         "points": 0.0,
         "previous_opponents": []
     },
@@ -11,7 +11,7 @@
         "name": "LOSE",
         "last_name": "LOSE",
         "date_of_birth": "02/02/2222",
-        "chess_id": "22222",
+        "chess_id": "AA22222",
         "points": 0.0,
         "previous_opponents": []
     },
@@ -19,7 +19,7 @@
         "name": "DRAW",
         "last_name": "DRAW",
         "date_of_birth": "03/03/3333",
-        "chess_id": "33333",
+        "chess_id": "AA33333",
         "points": 0.0,
         "previous_opponents": []
     },
@@ -27,7 +27,7 @@
         "name": "RANDOM",
         "last_name": "RANDOM",
         "date_of_birth": "04/04/4444",
-        "chess_id": "44444",
+        "chess_id": "AA44444",
         "points": 0.0,
         "previous_opponents": []
     },
@@ -35,7 +35,7 @@
         "name": "NEW",
         "last_name": "NEW",
         "date_of_birth": "05/05/5555",
-        "chess_id": "55555",
+        "chess_id": "AA55555",
         "points": 0.0,
         "previous_opponents": []
     },
@@ -43,7 +43,7 @@
         "name": "BOY",
         "last_name": "BOY",
         "date_of_birth": "06/06/6666",
-        "chess_id": "66666",
+        "chess_id": "AA66666",
         "points": 0.0,
         "previous_opponents": []
     }

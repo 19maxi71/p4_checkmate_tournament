@@ -1,8 +1,8 @@
 {
-    "name": "PAS_FINI_POUR_TEST",
-    "location": "",
-    "start_date": "",
-    "end_date": "",
+    "name": "qsdfqsdf",
+    "location": "qsdf",
+    "start_date": "qsdf",
+    "end_date": "qsdf",
     "total_players": 4,
     "num_rounds": 2,
     "description": "qsdfqsdf",
@@ -12,72 +12,72 @@
             "name": "WIN",
             "last_name": "WIN",
             "date_of_birth": "01/01/1111",
-            "chess_id": "11111",
+            "chess_id": "AA11111",
             "points": 2.0,
             "previous_opponents": [
-                "22222",
-                "33333"
+                "AA22222",
+                "AA33333"
             ]
         },
         {
             "name": "LOSE",
             "last_name": "LOSE",
             "date_of_birth": "02/02/2222",
-            "chess_id": "22222",
-            "points": 1.0,
+            "chess_id": "AA22222",
+            "points": 0.0,
             "previous_opponents": [
-                "11111",
-                "44444"
+                "AA11111",
+                "AA44444"
             ]
         },
         {
             "name": "DRAW",
             "last_name": "DRAW",
             "date_of_birth": "03/03/3333",
-            "chess_id": "33333",
+            "chess_id": "AA33333",
             "points": 0.5,
             "previous_opponents": [
-                "44444",
-                "11111"
+                "AA44444",
+                "AA11111"
             ]
         },
         {
             "name": "RANDOM",
             "last_name": "RANDOM",
             "date_of_birth": "04/04/4444",
-            "chess_id": "44444",
-            "points": 0.5,
+            "chess_id": "AA44444",
+            "points": 1.5,
             "previous_opponents": [
-                "33333",
-                "22222"
+                "AA33333",
+                "AA22222"
             ]
         }
     ],
     "rounds": [
         {
             "name": "Round 1",
-            "start_datetime": "2024-09-07 11:11:23.991101",
-            "end_datetime": "2024-09-07 11:11:44.234760",
+            "start_datetime": "2024-09-10 11:03:20.388923",
+            "end_datetime": "2024-09-10 11:03:27.939925",
             "matches": [
                 {
                     "player1": {
                         "name": "WIN",
                         "last_name": "WIN",
                         "date_of_birth": "01/01/1111",
-                        "chess_id": "11111",
+                        "chess_id": "AA11111",
                         "points": 1.0,
                         "previous_opponents": [
-                            "22222"
+                            "AA22222"
                         ]
                     },
                     "player2": {
                         "name": "LOSE",
                         "last_name": "LOSE",
                         "date_of_birth": "02/02/2222",
-                        "chess_id": "22222",
+                        "chess_id": "AA22222",
                         "points": 0.0,
                         "previous_opponents": [
-                            "11111"
+                            "AA11111"
                         ]
                     },
                     "result": "1"
@@ -87,20 +87,20 @@
                         "name": "DRAW",
                         "last_name": "DRAW",
                         "date_of_birth": "03/03/3333",
-                        "chess_id": "33333",
+                        "chess_id": "AA33333",
                         "points": 0.5,
                         "previous_opponents": [
-                            "44444"
+                            "AA44444"
                         ]
                     },
                     "player2": {
                         "name": "RANDOM",
                         "last_name": "RANDOM",
                         "date_of_birth": "04/04/4444",
-                        "chess_id": "44444",
+                        "chess_id": "AA44444",
                         "points": 0.5,
                         "previous_opponents": [
-                            "33333"
+                            "AA33333"
                         ]
                     },
                     "result": "0"
@@ -109,30 +109,30 @@
         },
         {
             "name": "Round 2",
-            "start_datetime": "2024-09-07 11:11:44.255008",
-            "end_datetime": "2024-09-07 11:12:12.305016",
+            "start_datetime": "2024-09-10 11:03:27.966055",
+            "end_datetime": "2024-09-10 11:03:33.261223",
             "matches": [
                 {
                     "player1": {
                         "name": "WIN",
                         "last_name": "WIN",
                         "date_of_birth": "01/01/1111",
-                        "chess_id": "11111",
+                        "chess_id": "AA11111",
                         "points": 1.0,
                         "previous_opponents": [
-                            "22222",
-                            "33333"
+                            "AA22222",
+                            "AA33333"
                         ]
                     },
                     "player2": {
                         "name": "DRAW",
                         "last_name": "DRAW",
                         "date_of_birth": "03/03/3333",
-                        "chess_id": "33333",
+                        "chess_id": "AA33333",
                         "points": 0.0,
                         "previous_opponents": [
-                            "44444",
-                            "11111"
+                            "AA44444",
+                            "AA11111"
                         ]
                     },
                     "result": "1"
@@ -142,25 +142,25 @@
                         "name": "RANDOM",
                         "last_name": "RANDOM",
                         "date_of_birth": "04/04/4444",
-                        "chess_id": "44444",
-                        "points": 0.0,
+                        "chess_id": "AA44444",
+                        "points": 1.0,
                         "previous_opponents": [
-                            "33333",
-                            "22222"
+                            "AA33333",
+                            "AA22222"
                         ]
                     },
                     "player2": {
                         "name": "LOSE",
                         "last_name": "LOSE",
                         "date_of_birth": "02/02/2222",
-                        "chess_id": "22222",
-                        "points": 1.0,
+                        "chess_id": "AA22222",
+                        "points": 0.0,
                         "previous_opponents": [
-                            "11111",
-                            "44444"
+                            "AA11111",
+                            "AA44444"
                         ]
                     },
-                    "result": "2"
+                    "result": "1"
                 }
             ]
         }
