@@ -23,7 +23,7 @@ class MainController:
         while True:
             choice = self.main_view.display_main_menu()
             if choice == "1":
-                self.create_tournament()
+                self.create_new_tournament()
             elif choice == "2":
                 self.generate_reports()
             elif choice == "3":
@@ -32,7 +32,7 @@ class MainController:
             else:
                 print("Invalid choice. Please try again.")
 
-    def create_tournament(self):
+    def create_new_tournament(self):
         """Crée un nouveau tournoi et lance les rounds."""
         file_path = os.path.join(os.path.dirname(__file__), 'tournament_data.json')
         self.tournament_controller = TournamentController(file_path)
