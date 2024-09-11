@@ -13,6 +13,7 @@ from models.player import Player
 from models.round import Round
 
 
+
 @dataclass
 class Tournament:
     name: str
@@ -40,7 +41,11 @@ class Tournament:
         """Sauvegarde l'état actuel du tournoi dans un fichier JSON."""
         tournament_data = asdict(self)
         with open(
+<<<<<<< HEAD:models/tournament.py
             os.path.join(project_dir, "data", f"{self.name}.json"), "w"
+=======
+            os.path.join(project_dir, "all_data", f"{self.name}.json"), "w"
+>>>>>>> 3d2a1fe (modif readme.md):all_models/tournament.py
         ) as file:
             json.dump(tournament_data, file, indent=4)
 

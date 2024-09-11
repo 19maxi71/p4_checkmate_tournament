@@ -12,10 +12,15 @@ from views.report_view import ReportView
 from models.player import Player
 
 
+
 class ReportController:
 
     def __init__(self):
+<<<<<<< HEAD:controllers/report_controller.py
         self.data_folder = os.path.join(os.path.dirname(__file__), "..", "data")
+=======
+        self.data_folder = os.path.join(os.path.dirname(__file__), "..", "all_data")
+>>>>>>> 3d2a1fe (modif readme.md):all_controllers/report_controller.py
 
     def generate_reports(self):
         """Génère les rapports en utilisant la vue de rapport."""
@@ -31,7 +36,11 @@ class ReportController:
         for player in players:
             html_content += f"<li>{player['last_name']} {player['name']} - {player['date_of_birth']} - {player['chess_id']}</li>"
         html_content += "</ul>"
+<<<<<<< HEAD:controllers/report_controller.py
         report_file = os.path.join(self.data_folder, "saved_players_report.html")
+=======
+        report_file = os.path.join(self.data_folder, "all_saved_players_report.html")
+>>>>>>> 3d2a1fe (modif readme.md):all_controllers/report_controller.py
         with open(report_file, "w") as file:
             file.write(html_content)
 
@@ -43,7 +52,11 @@ class ReportController:
         for tournament in tournaments:
             html_content += f"<li>{tournament}</li>"
         html_content += "</ul>"
+<<<<<<< HEAD:controllers/report_controller.py
         report_file = os.path.join(self.data_folder, "tournaments_report.html")
+=======
+        report_file = os.path.join(self.data_folder, "all_tournaments_report.html")
+>>>>>>> 3d2a1fe (modif readme.md):all_controllers/report_controller.py
         with open(report_file, "w") as file:
             file.write(html_content)
 

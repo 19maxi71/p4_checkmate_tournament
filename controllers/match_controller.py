@@ -11,6 +11,7 @@ from views.match_view import MatchView
 from models.match import Match
 
 
+
 class MatchController:
     def __init__(self, match, match_view):
         self.match = match

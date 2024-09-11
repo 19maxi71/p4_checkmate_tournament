@@ -20,6 +20,7 @@ from controllers.match_controller import MatchController
 from views.match_view import MatchView
 
 
+
 class TournamentController:
 
     def __init__(self, file_path):
