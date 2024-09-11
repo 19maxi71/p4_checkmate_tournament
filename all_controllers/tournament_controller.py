@@ -96,7 +96,7 @@ class TournamentController:
         self.save_tournament_to_json()
 
     def save_tournament_to_json(self):
-        """Sauvegarde le tournoi dans un fichier JSON."""
+        """Sauvegarde le tournoi dans un fichier JSON (quand fonction est appelée)."""
         if self.tournament:
             self.tournament.tournament_to_json()
 
@@ -115,7 +115,10 @@ class TournamentController:
 
     def run_rounds(self):
         """Exécute les rounds du tournoi."""
-        for i in range(int(self.tournament.num_rounds)):
+        # Check le nobmre de rounds déjà joués
+        completed_rounds = len(self.tournament.rounds)
+        
+        for i in range(completed_rounds, int(self.tournament.num_rounds)):
             round = Round("Round " + str(i + 1), str(datetime.now()), None)
             round_controller = RoundController(round)
             pairings = round_controller.generate_pairings(self.tournament.players)
