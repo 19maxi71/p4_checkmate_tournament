@@ -10,6 +10,7 @@ from all_controllers.tournament_controller import TournamentController
 from all_controllers.report_controller import ReportController
 from all_views.main_view import MainView
 
+
 class MainController:
 
     def __init__(self):
@@ -34,7 +35,7 @@ class MainController:
 
     def create_new_tournament(self):
         """Crée un nouveau tournoi et lance les rounds."""
-        file_path = os.path.join(os.path.dirname(__file__), 'tournament_data.json')
+        file_path = os.path.join(os.path.dirname(__file__), "tournament_data.json")
         self.tournament_controller = TournamentController(file_path)
         self.tournament_controller.run_rounds()
 
@@ -47,6 +48,7 @@ class MainController:
     def generate_reports(self):
         """Génère des rapports."""
         self.report_controller.generate_reports()
+
 
 if __name__ == "__main__":
     controller = MainController()

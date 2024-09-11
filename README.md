@@ -28,7 +28,8 @@ Created using Python.
 
 To run the application, execute the following command:
     ```sh
-    python main.py
+    cd all_controllers
+    python main_controller.py
     ```
 
 ## Generating flake8 Reports

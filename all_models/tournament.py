@@ -12,6 +12,7 @@ sys.path.append(project_dir)
 from all_models.player import Player
 from all_models.round import Round
 
+
 @dataclass
 class Tournament:
     name: str
@@ -38,28 +39,34 @@ class Tournament:
     def tournament_to_json(self):
         """Sauvegarde l'état actuel du tournoi dans un fichier JSON."""
         tournament_data = asdict(self)
-        with open(os.path.join(project_dir, 'all_data', f'{self.name}.json'), 'w') as file:
+        with open(
+            os.path.join(project_dir, "all_data", f"{self.name}.json"), "w"
+        ) as file:
             json.dump(tournament_data, file, indent=4)
 
     @classmethod
     def from_dict(cls, data):
         """Crée une instance de Tournament à partir d'un dictionnaire."""
         tournament = cls(
-            name=data.get('name', 'Unknown Tournament'),
-            location=data.get('location', 'Unknown Location'),
-            start_date=data.get('start_date', 'Unknown Start Date'),
-            end_date=data.get('end_date', 'Unknown End Date'),
-            total_players=data.get('total_players', 0),
-            num_rounds=data.get('num_rounds', 0),
-            description=data.get('description', '')
+            name=data.get("name", "Unknown Tournament"),
+            location=data.get("location", "Unknown Location"),
+            start_date=data.get("start_date", "Unknown Start Date"),
+            end_date=data.get("end_date", "Unknown End Date"),
+            total_players=data.get("total_players", 0),
+            num_rounds=data.get("num_rounds", 0),
+            description=data.get("description", ""),
         )
-        tournament.players = [Player.from_dict(player_data) for player_data in data.get('players', [])]
-        tournament.rounds = [Round.from_dict(round_data) for round_data in data.get('rounds', [])]
+        tournament.players = [
+            Player.from_dict(player_data) for player_data in data.get("players", [])
+        ]
+        tournament.rounds = [
+            Round.from_dict(round_data) for round_data in data.get("rounds", [])
+        ]
         return tournament
 
     @classmethod
     def load_from_json(cls, file_path):
         """Charge un tournoi à partir d'un fichier JSON."""
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             data = json.load(file)
             return cls.from_dict(data)

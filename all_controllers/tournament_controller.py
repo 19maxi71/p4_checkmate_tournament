@@ -19,6 +19,7 @@ from all_models.match import Match
 from all_controllers.match_controller import MatchController
 from all_views.match_view import MatchView
 
+
 class TournamentController:
 
     def __init__(self, file_path):
@@ -36,13 +37,19 @@ class TournamentController:
         elif choice == "2":
             self.load_tournament_from_json()
         else:
-            print("Invalid choice. Please restart the program and choose a valid option.")
+            print(
+                "Invalid choice. Please restart the program and choose a valid option."
+            )
             sys.exit(1)
 
     def create_tournament(self):
         """Crée un nouveau tournoi et ajoute des joueurs."""
-        name, location, start_date, end_date, total_players, num_rounds, description = self.tournament_view.get_tournament_details()
-        self.tournament = Tournament(name, location, start_date, end_date, total_players, num_rounds, description)
+        name, location, start_date, end_date, total_players, num_rounds, description = (
+            self.tournament_view.get_tournament_details()
+        )
+        self.tournament = Tournament(
+            name, location, start_date, end_date, total_players, num_rounds, description
+        )
         self.add_players_to_tournament()
         self.save_tournament_to_json()
 
@@ -117,7 +124,7 @@ class TournamentController:
         """Exécute les rounds du tournoi."""
         # Check le nobmre de rounds déjà joués
         completed_rounds = len(self.tournament.rounds)
-        
+
         for i in range(completed_rounds, int(self.tournament.num_rounds)):
             round = Round("Round " + str(i + 1), str(datetime.now()), None)
             round_controller = RoundController(round)
@@ -142,12 +149,22 @@ class TournamentController:
                 for tournament_player in self.tournament.players:
                     if tournament_player.chess_id == updated_player1.chess_id:
                         tournament_player.points = updated_player1.points
-                        if updated_player2.chess_id not in tournament_player.previous_opponents:
-                            tournament_player.previous_opponents.append(updated_player2.chess_id)
+                        if (
+                            updated_player2.chess_id
+                            not in tournament_player.previous_opponents
+                        ):
+                            tournament_player.previous_opponents.append(
+                                updated_player2.chess_id
+                            )
                     elif tournament_player.chess_id == updated_player2.chess_id:
                         tournament_player.points = updated_player2.points
-                        if updated_player1.chess_id not in tournament_player.previous_opponents:
-                            tournament_player.previous_opponents.append(updated_player1.chess_id)
+                        if (
+                            updated_player1.chess_id
+                            not in tournament_player.previous_opponents
+                        ):
+                            tournament_player.previous_opponents.append(
+                                updated_player1.chess_id
+                            )
 
             round.end_datetime = str(datetime.now())
             self.tournament.add_round(round)

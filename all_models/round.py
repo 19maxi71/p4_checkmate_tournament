@@ -11,6 +11,7 @@ from dataclasses import dataclass, field
 from all_models.match import Match
 from typing import Optional, List
 
+
 @dataclass
 class Round:
     name: str
@@ -22,9 +23,11 @@ class Round:
     def from_dict(cls, data):
         """Crée une instance de Round à partir d'un dictionnaire."""
         round = cls(
-            name=data.get('name', 'Unknown Round'),
-            start_datetime=data.get('start_datetime', 'Unknown Start Date'),
-            end_datetime=data.get('end_datetime', None)
+            name=data.get("name", "Unknown Round"),
+            start_datetime=data.get("start_datetime", "Unknown Start Date"),
+            end_datetime=data.get("end_datetime", None),
         )
-        round.matches = [Match.from_dict(match_data) for match_data in data.get('matches', [])]
+        round.matches = [
+            Match.from_dict(match_data) for match_data in data.get("matches", [])
+        ]
         return round

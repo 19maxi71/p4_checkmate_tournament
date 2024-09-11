@@ -10,22 +10,24 @@ from copy import deepcopy
 from all_views.match_view import MatchView
 from all_models.match import Match
 
+
 class MatchController:
     def __init__(self, match, match_view):
         self.match = match
         self.match_view = match_view
 
     def get_players_points_and_opponent_chess_id(self):
-        """Met à jour les points des joueurs et ajoute l'identifiant de l'adversaire à la liste des adversaires précédents."""
+        """Met à jour les points des joueurs et ajoute l'identifiant de l'adversaire
+        à la liste des adversaires précédents."""
         result_of_match = self.get_match_result()
 
-        if result_of_match == '1':
+        if result_of_match == "1":
             self.match.player1.points += 1
             self.match.player2.points += 0
-        elif result_of_match == '2':
+        elif result_of_match == "2":
             self.match.player2.points += 1
             self.match.player1.points += 0
-        elif result_of_match == '0':
+        elif result_of_match == "0":
             self.match.player1.points += 0.5
             self.match.player2.points += 0.5
 

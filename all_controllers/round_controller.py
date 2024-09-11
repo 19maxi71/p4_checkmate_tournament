@@ -16,6 +16,7 @@ from datetime import datetime
 from random import shuffle
 from copy import deepcopy
 
+
 class RoundController:
     def __init__(self, round):
         self.round = round
@@ -25,7 +26,7 @@ class RoundController:
         pairings = []
         # Trier les joueurs par points (ordre décroissant)
         players_sorted = sorted(players, key=lambda x: x.points, reverse=True)
-        
+
         while len(players_sorted) > 1:
             player1 = players_sorted.pop(0)
             for i, player2 in enumerate(players_sorted):
@@ -38,5 +39,5 @@ class RoundController:
                 # Si aucun adversaire n'est trouvé, prendre le premier joueur restant
                 player2 = players_sorted.pop(0)
                 pairings.append((player1, player2))
-        
+
         return pairings

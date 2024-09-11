@@ -1,5 +1,5 @@
 class MainView:
-    
+
     def display_main_menu(self):
         """Affiche le menu principal et retourne le choix de l'utilisateur."""
         print("1. Jouer un tournoi")

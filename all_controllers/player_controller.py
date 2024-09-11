@@ -11,6 +11,7 @@ from all_models.player import Player
 from all_views.player_view import PlayerView
 from dataclasses import asdict, is_dataclass
 
+
 class PlayerController:
     def __init__(self):
         self.player_view = PlayerView()
@@ -26,24 +27,37 @@ class PlayerController:
         """Enregistre un joueur dans le fichier JSON."""
         if not is_dataclass(player):
             raise TypeError("save_player expects a dataclass instance")
-        
+
         player_data = asdict(player)  # Convert Player object to dictionary
         try:
-            with open(os.path.join(os.path.dirname(__file__), '..', 'all_data', 'players.json'), 'r') as file:
+            with open(
+                os.path.join(
+                    os.path.dirname(__file__), "..", "all_data", "players.json"
+                ),
+                "r",
+            ) as file:
                 data = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             data = []
 
         data.append(player_data)
 
-        with open(os.path.join(os.path.dirname(__file__), '..', 'all_data', 'players.json'), "w") as file:
+        with open(
+            os.path.join(os.path.dirname(__file__), "..", "all_data", "players.json"),
+            "w",
+        ) as file:
             json.dump(data, file, indent=4)
         print("Joueur enregistré avec succès")
 
     def display_players(self):
         """Affiche tous les joueurs enregistrés."""
         try:
-            with open(os.path.join(os.path.dirname(__file__), '..', 'all_data', 'players.json'), 'r') as file:
+            with open(
+                os.path.join(
+                    os.path.dirname(__file__), "..", "all_data", "players.json"
+                ),
+                "r",
+            ) as file:
                 data = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             data = []

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: all_views/match_view.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="all_views.match_view.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               all_views/match_view.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  7
+               </span>
+               <strong>E501:</strong> line too long (83 > 79 characters)
+               
+                  (and 3 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (83 > 79 characters):</p>
+               
+               <a href="all_views.match_view.source.html#l14">
+                  <tt><i>14</i>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; &gt;&gt;&gt; Match entre </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player1</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> et </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player2</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;&lt;&lt;&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (124 > 79 characters):</p>
+               
+               <a href="all_views.match_view.source.html#l17">
+                  <tt><i>17</i>                 <span class="s2">&quot;Entrer le résultat du match (1 pour victoire de joueur 1, 2 pour victoire de joueur 2, 0 pour match nul): &quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="all_views.match_view.source.html#l29">
+                  <tt><i>29</i>                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player1</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> obtient </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player1</span><span class="o">.</span><span class="n">points</span><span class="si">}</span><span class="s2"> points </span><span class="se">\n</span><span class="s2">&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="all_views.match_view.source.html#l30">
+                  <tt><i>30</i>                 <span class="sa">f</span><span class="s2">&quot;et </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player2</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> obtient </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player2</span><span class="o">.</span><span class="n">points</span><span class="si">}</span><span class="s2"> points&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="all_views.match_view.source.html#l35">
+                  <tt><i>35</i>                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player2</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> obtient </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player2</span><span class="o">.</span><span class="n">points</span><span class="si">}</span><span class="s2"> points </span><span class="se">\n</span><span class="s2">&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="all_views.match_view.source.html#l36">
+                  <tt><i>36</i>                 <span class="sa">f</span><span class="s2">&quot;et </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player1</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> obtient </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player1</span><span class="o">.</span><span class="n">points</span><span class="si">}</span><span class="s2"> points&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (103 > 79 characters):</p>
+               
+               <a href="all_views.match_view.source.html#l40">
+                  <tt><i>40</i>                 <span class="sa">f</span><span class="s2">&quot;Match nul, </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player1</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> et </span><span class="si">{</span><span class="n">match</span><span class="o">.</span><span class="n">player2</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> obtiennent chacun 0.5 points&quot;</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>
