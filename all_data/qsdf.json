@@ -1,0 +1,298 @@
+{
+    "name": "qsdf",
+    "location": "qsdf",
+    "start_date": "qsd",
+    "end_date": "f",
+    "total_players": 4,
+    "num_rounds": 4,
+    "description": "qsdfqsdf",
+    "current_round": 0,
+    "players": [
+        {
+            "name": "WIN",
+            "last_name": "WIN",
+            "date_of_birth": "01/01/1111",
+            "chess_id": "AA11111",
+            "points": 4.0,
+            "previous_opponents": [
+                "AA22222",
+                "AA33333",
+                "AA44444"
+            ]
+        },
+        {
+            "name": "LOSE",
+            "last_name": "LOSE",
+            "date_of_birth": "02/02/2222",
+            "chess_id": "AA22222",
+            "points": 1.0,
+            "previous_opponents": [
+                "AA11111",
+                "AA44444",
+                "AA33333"
+            ]
+        },
+        {
+            "name": "DRAW",
+            "last_name": "DRAW",
+            "date_of_birth": "03/03/3333",
+            "chess_id": "AA33333",
+            "points": 1.5,
+            "previous_opponents": [
+                "AA44444",
+                "AA11111",
+                "AA22222"
+            ]
+        },
+        {
+            "name": "RANDOM",
+            "last_name": "RANDOM",
+            "date_of_birth": "04/04/4444",
+            "chess_id": "AA44444",
+            "points": 1.5,
+            "previous_opponents": [
+                "AA33333",
+                "AA22222",
+                "AA11111"
+            ]
+        }
+    ],
+    "rounds": [
+        {
+            "name": "Round 1",
+            "start_datetime": "2024-09-12 01:09:30.524795",
+            "end_datetime": "2024-09-12 01:09:35.503445",
+            "matches": [
+                {
+                    "player1": {
+                        "name": "WIN",
+                        "last_name": "WIN",
+                        "date_of_birth": "01/01/1111",
+                        "chess_id": "AA11111",
+                        "points": 1.0,
+                        "previous_opponents": [
+                            "AA22222"
+                        ]
+                    },
+                    "player2": {
+                        "name": "LOSE",
+                        "last_name": "LOSE",
+                        "date_of_birth": "02/02/2222",
+                        "chess_id": "AA22222",
+                        "points": 0.0,
+                        "previous_opponents": [
+                            "AA11111"
+                        ]
+                    },
+                    "result": "1"
+                },
+                {
+                    "player1": {
+                        "name": "DRAW",
+                        "last_name": "DRAW",
+                        "date_of_birth": "03/03/3333",
+                        "chess_id": "AA33333",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA44444"
+                        ]
+                    },
+                    "player2": {
+                        "name": "RANDOM",
+                        "last_name": "RANDOM",
+                        "date_of_birth": "04/04/4444",
+                        "chess_id": "AA44444",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA33333"
+                        ]
+                    },
+                    "result": "0"
+                }
+            ]
+        },
+        {
+            "name": "Round 2",
+            "start_datetime": "2024-09-12 01:09:35.506293",
+            "end_datetime": "2024-09-12 01:09:42.558962",
+            "matches": [
+                {
+                    "player1": {
+                        "name": "WIN",
+                        "last_name": "WIN",
+                        "date_of_birth": "01/01/1111",
+                        "chess_id": "AA11111",
+                        "points": 1.0,
+                        "previous_opponents": [
+                            "AA22222",
+                            "AA33333"
+                        ]
+                    },
+                    "player2": {
+                        "name": "DRAW",
+                        "last_name": "DRAW",
+                        "date_of_birth": "03/03/3333",
+                        "chess_id": "AA33333",
+                        "points": 0.0,
+                        "previous_opponents": [
+                            "AA44444",
+                            "AA11111"
+                        ]
+                    },
+                    "result": "1"
+                },
+                {
+                    "player1": {
+                        "name": "RANDOM",
+                        "last_name": "RANDOM",
+                        "date_of_birth": "04/04/4444",
+                        "chess_id": "AA44444",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA33333",
+                            "AA22222"
+                        ]
+                    },
+                    "player2": {
+                        "name": "LOSE",
+                        "last_name": "LOSE",
+                        "date_of_birth": "02/02/2222",
+                        "chess_id": "AA22222",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA11111",
+                            "AA44444"
+                        ]
+                    },
+                    "result": "0"
+                }
+            ]
+        },
+        {
+            "name": "Round 3",
+            "start_datetime": "2024-09-12 01:09:42.561903",
+            "end_datetime": "2024-09-12 01:09:47.551217",
+            "matches": [
+                {
+                    "player1": {
+                        "name": "WIN",
+                        "last_name": "WIN",
+                        "date_of_birth": "01/01/1111",
+                        "chess_id": "AA11111",
+                        "points": 1.0,
+                        "previous_opponents": [
+                            "AA22222",
+                            "AA33333",
+                            "AA44444"
+                        ]
+                    },
+                    "player2": {
+                        "name": "RANDOM",
+                        "last_name": "RANDOM",
+                        "date_of_birth": "04/04/4444",
+                        "chess_id": "AA44444",
+                        "points": 0.0,
+                        "previous_opponents": [
+                            "AA33333",
+                            "AA22222",
+                            "AA11111"
+                        ]
+                    },
+                    "result": "1"
+                },
+                {
+                    "player1": {
+                        "name": "LOSE",
+                        "last_name": "LOSE",
+                        "date_of_birth": "02/02/2222",
+                        "chess_id": "AA22222",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA11111",
+                            "AA44444",
+                            "AA33333"
+                        ]
+                    },
+                    "player2": {
+                        "name": "DRAW",
+                        "last_name": "DRAW",
+                        "date_of_birth": "03/03/3333",
+                        "chess_id": "AA33333",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA44444",
+                            "AA11111",
+                            "AA22222"
+                        ]
+                    },
+                    "result": "0"
+                }
+            ]
+        },
+        {
+            "name": "Round 4",
+            "start_datetime": "2024-09-12 01:09:47.554168",
+            "end_datetime": "2024-09-12 01:09:51.558586",
+            "matches": [
+                {
+                    "player1": {
+                        "name": "WIN",
+                        "last_name": "WIN",
+                        "date_of_birth": "01/01/1111",
+                        "chess_id": "AA11111",
+                        "points": 1.0,
+                        "previous_opponents": [
+                            "AA22222",
+                            "AA33333",
+                            "AA44444",
+                            "AA22222"
+                        ]
+                    },
+                    "player2": {
+                        "name": "LOSE",
+                        "last_name": "LOSE",
+                        "date_of_birth": "02/02/2222",
+                        "chess_id": "AA22222",
+                        "points": 0.0,
+                        "previous_opponents": [
+                            "AA11111",
+                            "AA44444",
+                            "AA33333",
+                            "AA11111"
+                        ]
+                    },
+                    "result": "1"
+                },
+                {
+                    "player1": {
+                        "name": "DRAW",
+                        "last_name": "DRAW",
+                        "date_of_birth": "03/03/3333",
+                        "chess_id": "AA33333",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA44444",
+                            "AA11111",
+                            "AA22222",
+                            "AA44444"
+                        ]
+                    },
+                    "player2": {
+                        "name": "RANDOM",
+                        "last_name": "RANDOM",
+                        "date_of_birth": "04/04/4444",
+                        "chess_id": "AA44444",
+                        "points": 0.5,
+                        "previous_opponents": [
+                            "AA33333",
+                            "AA22222",
+                            "AA11111",
+                            "AA33333"
+                        ]
+                    },
+                    "result": "0"
+                }
+            ]
+        }
+    ]
+}

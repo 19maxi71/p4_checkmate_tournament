@@ -54,5 +54,13 @@
         "chess_id": "AA77777",
         "points": 0.0,
         "previous_opponents": []
+    },
+    {
+        "name": "NOUVEAU",
+        "last_name": "NOUVEAU",
+        "date_of_birth": "08/08/8888",
+        "chess_id": "AA88888",
+        "points": 0.0,
+        "previous_opponents": []
     }
 ]
