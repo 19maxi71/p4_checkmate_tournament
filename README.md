@@ -28,7 +28,7 @@ Created using Python.
 
 To run the application, execute the following command:
     ```sh
-    cd all_controllers
+    cd controllers
     python main_controller.py
     ```
 

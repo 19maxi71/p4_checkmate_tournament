@@ -7,8 +7,8 @@ project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
 from copy import deepcopy
-from all_views.match_view import MatchView
-from all_models.match import Match
+from views.match_view import MatchView
+from models.match import Match
 
 
 class MatchController:

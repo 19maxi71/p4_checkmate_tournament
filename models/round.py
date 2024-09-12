@@ -8,7 +8,7 @@ sys.path.append(project_dir)
 
 from datetime import datetime
 from dataclasses import dataclass, field
-from all_models.match import Match
+from models.match import Match
 from typing import Optional, List
 
 

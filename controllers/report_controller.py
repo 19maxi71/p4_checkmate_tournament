@@ -7,15 +7,15 @@ project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
 import json
-from all_models.tournament import Tournament
-from all_views.report_view import ReportView
-from all_models.player import Player
+from models.tournament import Tournament
+from views.report_view import ReportView
+from models.player import Player
 
 
 class ReportController:
 
     def __init__(self):
-        self.data_folder = os.path.join(os.path.dirname(__file__), "..", "all_data")
+        self.data_folder = os.path.join(os.path.dirname(__file__), "..", "data")
 
     def generate_reports(self):
         """Génère les rapports en utilisant la vue de rapport."""
@@ -31,7 +31,7 @@ class ReportController:
         for player in players:
             html_content += f"<li>{player['last_name']} {player['name']} - {player['date_of_birth']} - {player['chess_id']}</li>"
         html_content += "</ul>"
-        report_file = os.path.join(self.data_folder, "all_saved_players_report.html")
+        report_file = os.path.join(self.data_folder, "saved_players_report.html")
         with open(report_file, "w") as file:
             file.write(html_content)
 
@@ -43,7 +43,7 @@ class ReportController:
         for tournament in tournaments:
             html_content += f"<li>{tournament}</li>"
         html_content += "</ul>"
-        report_file = os.path.join(self.data_folder, "all_tournaments_report.html")
+        report_file = os.path.join(self.data_folder, "tournaments_report.html")
         with open(report_file, "w") as file:
             file.write(html_content)
 

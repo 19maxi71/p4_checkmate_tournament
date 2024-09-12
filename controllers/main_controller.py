@@ -6,9 +6,9 @@ current_dir = os.path.dirname(__file__)
 project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
-from all_controllers.tournament_controller import TournamentController
-from all_controllers.report_controller import ReportController
-from all_views.main_view import MainView
+from controllers.tournament_controller import TournamentController
+from controllers.report_controller import ReportController
+from views.main_view import MainView
 
 
 class MainController:

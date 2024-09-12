@@ -9,8 +9,8 @@ current_dir = os.path.dirname(__file__)
 project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
-from all_models.player import Player
-from all_models.round import Round
+from models.player import Player
+from models.round import Round
 
 
 @dataclass
@@ -40,7 +40,7 @@ class Tournament:
         """Sauvegarde l'état actuel du tournoi dans un fichier JSON."""
         tournament_data = asdict(self)
         with open(
-            os.path.join(project_dir, "all_data", f"{self.name}.json"), "w"
+            os.path.join(project_dir, "data", f"{self.name}.json"), "w"
         ) as file:
             json.dump(tournament_data, file, indent=4)
 

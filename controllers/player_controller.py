@@ -7,8 +7,8 @@ project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
 import json
-from all_models.player import Player
-from all_views.player_view import PlayerView
+from models.player import Player
+from views.player_view import PlayerView
 from dataclasses import asdict, is_dataclass
 
 
@@ -32,7 +32,7 @@ class PlayerController:
         try:
             with open(
                 os.path.join(
-                    os.path.dirname(__file__), "..", "all_data", "players.json"
+                    os.path.dirname(__file__), "..", "data", "players.json"
                 ),
                 "r",
             ) as file:
@@ -43,7 +43,7 @@ class PlayerController:
         data.append(player_data)
 
         with open(
-            os.path.join(os.path.dirname(__file__), "..", "all_data", "players.json"),
+            os.path.join(os.path.dirname(__file__), "..", "data", "players.json"),
             "w",
         ) as file:
             json.dump(data, file, indent=4)
@@ -54,7 +54,7 @@ class PlayerController:
         try:
             with open(
                 os.path.join(
-                    os.path.dirname(__file__), "..", "all_data", "players.json"
+                    os.path.dirname(__file__), "..", "data", "players.json"
                 ),
                 "r",
             ) as file:

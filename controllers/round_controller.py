@@ -6,12 +6,12 @@ current_dir = os.path.dirname(__file__)
 project_dir = os.path.dirname(current_dir)
 sys.path.append(project_dir)
 
-from all_models.match import Match
-from all_controllers.match_controller import MatchController
-from all_views.match_view import MatchView
-from all_models.round import Round
-from all_models.player import Player
-from all_views.player_view import PlayerView
+from models.match import Match
+from controllers.match_controller import MatchController
+from views.match_view import MatchView
+from models.round import Round
+from models.player import Player
+from views.player_view import PlayerView
 from datetime import datetime
 from random import shuffle
 from copy import deepcopy

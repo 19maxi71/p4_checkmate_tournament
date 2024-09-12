@@ -8,16 +8,16 @@ sys.path.append(project_dir)
 
 from datetime import datetime
 from copy import deepcopy
-from all_models.tournament import Tournament
-from all_views.tournament_view import TournamentView
-from all_models.player import Player
-from all_controllers.player_controller import PlayerController
-from all_views.player_view import PlayerView
-from all_models.round import Round
-from all_controllers.round_controller import RoundController
-from all_models.match import Match
-from all_controllers.match_controller import MatchController
-from all_views.match_view import MatchView
+from models.tournament import Tournament
+from views.tournament_view import TournamentView
+from models.player import Player
+from controllers.player_controller import PlayerController
+from views.player_view import PlayerView
+from models.round import Round
+from controllers.round_controller import RoundController
+from models.match import Match
+from controllers.match_controller import MatchController
+from views.match_view import MatchView
 
 
 class TournamentController:

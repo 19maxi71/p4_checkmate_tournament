@@ -37,4 +37,4 @@ class ReportView:
             controller.generate_tournament_summary_report()
         else:
             print("Invalid choice. Please try again.")
-        print("Rapport crée dans le dossier all_data")
+        print("Rapport crée dans le dossier data")

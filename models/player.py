@@ -40,7 +40,7 @@ class Player:
         """Vérifie si un joueur existe déjà dans le fichier JSON."""
         try:
             players_data_file_path = os.path.join(
-                project_dir, "all_data", "players.json"
+                project_dir, "data", "players.json"
             )
             with open(players_data_file_path, "r") as file:
                 data = json.load(file)

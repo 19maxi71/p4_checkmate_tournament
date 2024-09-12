@@ -9,7 +9,7 @@ sys.path.append(project_dir)
 import json
 from dataclasses import dataclass
 from typing import Optional
-from all_models.player import Player
+from models.player import Player
 
 
 @dataclass
