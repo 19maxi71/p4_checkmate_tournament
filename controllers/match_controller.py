@@ -9,10 +9,6 @@ sys.path.append(project_dir)
 from copy import deepcopy
 from views.match_view import MatchView
 from models.match import Match
-<<<<<<< HEAD
-
-=======
->>>>>>> 80fdfa0 (Refactor file and folder names)
 
 
 class MatchController:

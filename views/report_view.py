@@ -37,12 +37,4 @@ class ReportView:
             controller.generate_tournament_summary_report()
         else:
             print("Invalid choice. Please try again.")
-<<<<<<< HEAD
-<<<<<<< HEAD:views/report_view.py
         print("Rapport crée dans le dossier data")
-=======
-        print("Rapport crée dans le dossier all_data")
->>>>>>> 3d2a1fe (modif readme.md):all_views/report_view.py
-=======
-        print("Rapport crée dans le dossier data")
->>>>>>> 80fdfa0 (Refactor file and folder names)

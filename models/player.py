@@ -40,15 +40,7 @@ class Player:
         """Vérifie si un joueur existe déjà dans le fichier JSON."""
         try:
             players_data_file_path = os.path.join(
-<<<<<<< HEAD
-<<<<<<< HEAD:models/player.py
                 project_dir, "data", "players.json"
-=======
-                project_dir, "all_data", "players.json"
->>>>>>> 3d2a1fe (modif readme.md):all_models/player.py
-=======
-                project_dir, "data", "players.json"
->>>>>>> 80fdfa0 (Refactor file and folder names)
             )
             with open(players_data_file_path, "r") as file:
                 data = json.load(file)

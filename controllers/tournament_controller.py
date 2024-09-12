@@ -18,10 +18,6 @@ from controllers.round_controller import RoundController
 from models.match import Match
 from controllers.match_controller import MatchController
 from views.match_view import MatchView
-<<<<<<< HEAD
-
-=======
->>>>>>> 80fdfa0 (Refactor file and folder names)
 
 
 class TournamentController:

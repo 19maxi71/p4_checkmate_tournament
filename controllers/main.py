@@ -9,10 +9,6 @@ sys.path.append(project_dir)
 from controllers.tournament_controller import TournamentController
 from controllers.report_controller import ReportController
 from views.main_view import MainView
-<<<<<<< HEAD
-
-=======
->>>>>>> 80fdfa0 (Refactor file and folder names)
 
 
 class MainController:

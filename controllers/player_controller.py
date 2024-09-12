@@ -32,15 +32,7 @@ class PlayerController:
         try:
             with open(
                 os.path.join(
-<<<<<<< HEAD
-<<<<<<< HEAD:controllers/player_controller.py
                     os.path.dirname(__file__), "..", "data", "players.json"
-=======
-                    os.path.dirname(__file__), "..", "all_data", "players.json"
->>>>>>> 3d2a1fe (modif readme.md):all_controllers/player_controller.py
-=======
-                    os.path.dirname(__file__), "..", "data", "players.json"
->>>>>>> 80fdfa0 (Refactor file and folder names)
                 ),
                 "r",
             ) as file:
@@ -51,15 +43,7 @@ class PlayerController:
         data.append(player_data)
 
         with open(
-<<<<<<< HEAD
-<<<<<<< HEAD:controllers/player_controller.py
             os.path.join(os.path.dirname(__file__), "..", "data", "players.json"),
-=======
-            os.path.join(os.path.dirname(__file__), "..", "all_data", "players.json"),
->>>>>>> 3d2a1fe (modif readme.md):all_controllers/player_controller.py
-=======
-            os.path.join(os.path.dirname(__file__), "..", "data", "players.json"),
->>>>>>> 80fdfa0 (Refactor file and folder names)
             "w",
         ) as file:
             json.dump(data, file, indent=4)
@@ -70,15 +54,7 @@ class PlayerController:
         try:
             with open(
                 os.path.join(
-<<<<<<< HEAD
-<<<<<<< HEAD:controllers/player_controller.py
                     os.path.dirname(__file__), "..", "data", "players.json"
-=======
-                    os.path.dirname(__file__), "..", "all_data", "players.json"
->>>>>>> 3d2a1fe (modif readme.md):all_controllers/player_controller.py
-=======
-                    os.path.dirname(__file__), "..", "data", "players.json"
->>>>>>> 80fdfa0 (Refactor file and folder names)
                 ),
                 "r",
             ) as file:
