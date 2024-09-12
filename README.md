@@ -29,9 +29,13 @@ Created using Python.
 To run the application, execute the following command:
     ```sh
 <<<<<<< HEAD
+<<<<<<< HEAD
     cd controllers
     python main_controller.py
 =======
+=======
+    cd controllers
+>>>>>>> 80fdfa0 (Refactor file and folder names)
     python main.py
 >>>>>>> 3d2a1fe (modif readme.md)
     ```
